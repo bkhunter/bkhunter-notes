@@ -4,5 +4,7 @@
     <string name="app_name">Bkhunter-Notes</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
+    <string name="title_activity_add_claim">Add_claim</string>
+    <string name="selectdate">Select Date</string>
 
 </resources>

@@ -1,102 +1,115 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" >
 
-    <EditText
-        android:id="@+id/claimEditText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/enterClaimName"
-        android:ems="10" >
+	<RelativeLayout
+	    android:layout_width="match_parent"
+	    android:layout_height="464dp" >
+	    
+	    <EditText
+	        android:id="@+id/claimEditText"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentLeft="true"
+	        android:layout_alignParentRight="true"
+	        android:layout_below="@+id/enterClaimName"
+	        android:ems="10" >
+	
+	        <requestFocus />
+	    </EditText>
+	
+	    <EditText
+	        android:id="@+id/descriptionEditText"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentLeft="true"
+	        android:layout_alignParentRight="true"
+	        android:layout_below="@+id/descriptionTextview"
+	        android:ems="10"
+	        android:inputType="textMultiLine" />
+	
+	    <TextView
+	        android:id="@+id/dateFromTextView"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentLeft="true"
+	        android:layout_alignParentRight="true"
+	        android:layout_below="@+id/descriptionEditText"
+	        android:text="Date from: \n(mm/dd/yyyy)"
+	        android:textAppearance="?android:attr/textAppearanceLarge" />
+	
+	    <TextView
+	        android:id="@+id/enterClaimName"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentLeft="true"
+	        android:layout_alignParentRight="true"
+	        android:layout_alignParentTop="true"
+	        android:layout_marginTop="18dp"
+	        android:text="Name of claim:"
+	        android:textAppearance="?android:attr/textAppearanceLarge" />
+	
+	    <TextView
+	        android:id="@+id/DateToTextView"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentLeft="true"
+	        android:layout_alignParentRight="true"
+	        android:layout_below="@+id/dateFromEditText"
+	        android:text="Date to: \n(mm/dd/yyyy) :"
+	        android:textAppearance="?android:attr/textAppearanceLarge"
+	        android:textSize="24dp" />
+	
+	    <EditText
+	        android:id="@+id/dateFromEditText"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentLeft="true"
+	        android:layout_alignParentRight="true"
+	        android:layout_below="@+id/dateFromTextView"
+	        android:ems="10"
+	        android:inputType="date" />
+	
+	    <EditText
+	        android:id="@+id/dateToEditText"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentLeft="true"
+	        android:layout_alignParentRight="true"
+	        android:layout_below="@+id/DateToTextView"
+	        android:ems="10"
+	        android:inputType="date" />
 
-        <requestFocus />
-    </EditText>
+	    <TextView
+	        android:id="@+id/descriptionTextview"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentLeft="true"
+	        android:layout_below="@+id/claimEditText"
+	        android:text="Description:"
+	        android:textAppearance="?android:attr/textAppearanceLarge" />
 
-    <EditText
-        android:id="@+id/descriptionEditText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/descriptionTextview"
-        android:ems="10"
-        android:inputType="textMultiLine" />
+	    <Button
+	        android:id="@+id/addExpenseButton"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentLeft="true"
+	        android:layout_alignParentRight="true"
+	        android:layout_below="@+id/dateToEditText"
+	        android:layout_marginTop="21dp"
+	        android:onClick="addClaimAction"
+	        android:text="Add Expense Items" />
 
-    <EditText
-        android:id="@+id/editText1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/dateFromTextView"
-        android:ems="10"
-        android:inputType="date" />
-
-    <TextView
-        android:id="@+id/dateFromTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/descriptionEditText"
-        android:layout_marginTop="28dp"
-        android:text="Date from:"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
-    <TextView
-        android:id="@+id/enterClaimName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="18dp"
-        android:text="Name of claim:"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
-    <TextView
-        android:id="@+id/descriptionTextview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/claimEditText"
-        android:layout_marginTop="29dp"
-        android:text="Description:"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
-    <TextView
-        android:id="@+id/DateToTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/editText1"
-        android:text="Date to:"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textSize="24dp" />
-
-    <EditText
-        android:id="@+id/editText2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/DateToTextView"
-        android:ems="10"
-        android:inputType="date" />
-
-    <Button
-        android:id="@+id/addExpenseButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/editText2"
-        android:text="Add Expense Items" />
-
-</RelativeLayout>
+	    <Button
+	        android:id="@+id/dontAddButton"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentLeft="true"
+	        android:layout_alignParentRight="true"
+	        android:layout_below="@+id/addExpenseButton"
+	        android:onClick="addClaimAction"
+	        android:text="No Expense Items" />
+	
+	</RelativeLayout>
+</ScrollView>
