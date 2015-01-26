@@ -8,6 +8,10 @@
 package ca.ualberta.cs.bkhunter_notes;
 
 public final class R {
+    public static final class array {
+        public static final int category_arrays=0x7f060000;
+        public static final int currency_arrays=0x7f060001;
+    }
     public static final class attr {
     }
     public static final class dimen {
@@ -22,40 +26,68 @@ public final class R {
     }
     public static final class drawable {
         public static final int ic_launcher=0x7f020000;
+        public static final int minus=0x7f020001;
+        public static final int plus=0x7f020002;
     }
     public static final class id {
-        public static final int DateToTextView=0x7f080008;
-        public static final int action_settings=0x7f08000f;
-        public static final int addClaimButton=0x7f080000;
-        public static final int addExpenseButton=0x7f08000b;
-        public static final int claimEditText=0x7f080003;
-        public static final int claimTextview=0x7f080001;
-        public static final int claimsListview=0x7f080002;
-        public static final int dateFromDisplayTextView=0x7f08000e;
-        public static final int dateFromEditText=0x7f080009;
-        public static final int dateFromTextView=0x7f080007;
-        public static final int dateToEditText=0x7f08000a;
-        public static final int descriptionEditText=0x7f080005;
-        public static final int descriptionTextview=0x7f080006;
-        public static final int dontAddButton=0x7f08000c;
-        public static final int enterClaimName=0x7f080004;
-        public static final int selectedClaimTextView=0x7f08000d;
+        public static final int AmountTextView=0x7f090005;
+        public static final int DateToTextView=0x7f090016;
+        public static final int action_settings=0x7f090021;
+        public static final int addClaimButton=0x7f09000f;
+        public static final int addEItextview=0x7f090000;
+        public static final int addExpenseButton=0x7f090019;
+        public static final int addMultButton=0x7f090006;
+        public static final int addSingleButton=0x7f090007;
+        public static final int amtEditText=0x7f09000c;
+        public static final int categorySpinner=0x7f09000a;
+        public static final int categoryTextView=0x7f090003;
+        public static final int claimEditText=0x7f090012;
+        public static final int claimTextview=0x7f090010;
+        public static final int claimsListview=0x7f090011;
+        public static final int currencySpinner=0x7f09000e;
+        public static final int currencyTextView=0x7f09000d;
+        public static final int dateEditText=0x7f090009;
+        public static final int dateFromDisplayTextView=0x7f09001c;
+        public static final int dateFromEditText=0x7f090017;
+        public static final int dateFromTextView=0x7f090015;
+        public static final int dateTextView=0x7f090004;
+        public static final int dateToEditText=0x7f090018;
+        public static final int descrEIEditText=0x7f09000b;
+        public static final int descriptionTextView=0x7f090001;
+        public static final int descriptionTextview=0x7f090014;
+        public static final int dontAddButton=0x7f09001a;
+        public static final int enterClaimName=0x7f090013;
+        public static final int expenseItemsListView=0x7f090020;
+        public static final int expenseItemsTextView=0x7f09001d;
+        public static final int itemEditText=0x7f090008;
+        public static final int itemTextView1=0x7f090002;
+        public static final int minusImageButton=0x7f09001e;
+        public static final int plusImageButton=0x7f09001f;
+        public static final int selectedClaimTextView=0x7f09001b;
     }
     public static final class layout {
-        public static final int activity_main=0x7f030000;
-        public static final int add_claims=0x7f030001;
-        public static final int edit_claims=0x7f030002;
+        public static final int activity_add_expense=0x7f030000;
+        public static final int activity_main=0x7f030001;
+        public static final int add_claims=0x7f030002;
+        public static final int edit_claims=0x7f030003;
+        public static final int expense_items_activity=0x7f030004;
     }
     public static final class menu {
-        public static final int add_claim=0x7f070000;
-        public static final int main=0x7f070001;
+        public static final int add_claim=0x7f080000;
+        public static final int add_expense=0x7f080001;
+        public static final int expense_items=0x7f080002;
+        public static final int main=0x7f080003;
     }
     public static final class string {
         public static final int action_settings=0x7f050001;
         public static final int app_name=0x7f050000;
+        public static final int category_prompt=0x7f050007;
+        public static final int currency_prompt=0x7f050008;
         public static final int hello_world=0x7f050002;
         public static final int selectdate=0x7f050004;
         public static final int title_activity_add_claim=0x7f050003;
+        public static final int title_activity_add_expense=0x7f050006;
+        public static final int title_activity_expense_items=0x7f050005;
     }
     public static final class style {
         /** 
@@ -79,10 +111,10 @@ public final class R {
     
  API 14 theme customizations can go here. 
          */
-        public static final int AppBaseTheme=0x7f060000;
+        public static final int AppBaseTheme=0x7f070000;
         /**  Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
          */
-        public static final int AppTheme=0x7f060001;
+        public static final int AppTheme=0x7f070001;
     }
 }

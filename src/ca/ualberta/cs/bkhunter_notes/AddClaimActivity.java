@@ -1,5 +1,6 @@
 package ca.ualberta.cs.bkhunter_notes;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.view.Menu;
@@ -28,11 +29,51 @@ public class AddClaimActivity extends FragmentActivity {
 	}
 	
 	public void addClaimAction(View v) {
-		Toast.makeText(this, "temp button, adds claim", Toast.LENGTH_SHORT).show();
 		ClaimController ct = new ClaimController();
-		EditText textView = (EditText)findViewById(R.id.claimEditText);
-		Claim claim = new Claim(textView.getText().toString());
-		ct.addIt(claim);
+		
+		//each of these correspond to the text input in each field
+		EditText nameTextView = (EditText)findViewById(R.id.claimEditText);
+		//EditText descriptionTextView = (EditText)findViewById(R.id.descrEIEditText);
+		EditText dateFromTextView = (EditText)findViewById(R.id.dateFromEditText);
+		EditText dateToTextView = (EditText)findViewById(R.id.dateToEditText);
+		
+		String name = nameTextView.getText().toString();
+		//String description = descriptionTextView.getText().toString();
+		String date_from = dateFromTextView.getText().toString();
+		String date_to = dateToTextView.getText().toString();
+		
+		if (!name.equals("") && !date_to.equals("") && !date_from.equals("")) {
+			Claim claim = new Claim(name, date_from, date_to);
+			ct.addIt(claim);
+		} else {
+			Toast.makeText(this,"Please fill out all fields", Toast.LENGTH_SHORT).show();
+		}
+		
+	}
+	
+	public void addExpenseAction(View v) {
+		
+		ClaimController ct = new ClaimController();
+		
+		//each of these correspond to the text input in each field
+		EditText nameTextView = (EditText)findViewById(R.id.claimEditText);
+		//EditText descriptionTextView = (EditText)findViewById(R.id.descrEIEditText);
+		EditText dateFromTextView = (EditText)findViewById(R.id.dateFromEditText);
+		EditText dateToTextView = (EditText)findViewById(R.id.dateToEditText);
+		
+		String name = nameTextView.getText().toString();
+//		String description = descriptionTextView.getText().toString();
+		String date_from = dateFromTextView.getText().toString();
+		String date_to = dateToTextView.getText().toString();
+		
+		if (!name.equals("") && !date_to.equals("") && !date_from.equals("")) {
+			Claim claim = new Claim(name, date_from, date_to);
+			ct.addIt(claim);
+			Intent intent = new Intent(AddClaimActivity.this, AddExpenseActivity.class);
+			startActivity(intent);
+		} else {
+			Toast.makeText(this,"Please fill out all fields", Toast.LENGTH_SHORT).show();
+		}
 		
 	}
 	

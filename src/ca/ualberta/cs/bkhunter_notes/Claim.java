@@ -6,14 +6,13 @@ public class Claim {
 	public String name;
 	public String dateFrom;
 	public String dateTo;
-	public String description;
+	//public String description;
 	public Expense_Item item = null;
 	
-	public Claim(String n) {//, String dF, String dT, String descr) {
+	public Claim(String n, String dF, String dT) {
 		this.name = n;
-		//this.dateFrom = dF;
-		//this.dateTo = dT;
-		//this.description = descr;
+		this.dateFrom = dF;
+		this.dateTo = dT;
 	}
 	
 	public String getName() {
@@ -49,16 +48,16 @@ public class Claim {
 	}
 
 	
-	public String getDescription(){
-	
-		return description;
-	}
-
-	
-	public void setDescription(String description){
-	
-		this.description = description;
-	}
+//	public String getDescription(){
+//	
+//		return description;
+//	}
+//
+//	
+//	public void setDescription(String description){
+//	
+//		this.description = description;
+//	}
 	
 
 }
