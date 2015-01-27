@@ -38,6 +38,10 @@
             android:name="ca.ualberta.cs.bkhunter_notes.AddExpenseActivity"
             android:label="@string/title_activity_add_expense" >
         </activity>
+        <activity
+            android:name="ca.ualberta.cs.bkhunter_notes.ViewClaim"
+            android:label="@string/title_activity_view_claim" >
+        </activity>
     </application>
 
 </manifest>

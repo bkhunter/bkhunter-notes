@@ -18,16 +18,8 @@
         android:onClick="addClaim"
         android:text="Add Claim" />
 
-    <TextView
-        android:id="@+id/claimTextview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:text="Claims"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
-    <ExpandableListView
-        android:id="@+id/claimsListview"
+    <ListView
+        android:id="@+id/claimListView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/addClaimButton"
@@ -35,6 +27,15 @@
         android:layout_alignParentRight="true"
         android:layout_below="@+id/claimTextview" >
 
-    </ExpandableListView>
+    </ListView>
+
+    <TextView
+        android:id="@+id/claimTextview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:text="Claims"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
 </RelativeLayout>

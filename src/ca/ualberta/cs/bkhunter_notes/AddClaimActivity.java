@@ -1,11 +1,17 @@
 package ca.ualberta.cs.bkhunter_notes;
 
+import java.util.ArrayList;
+import java.util.Collection;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.view.Menu;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ExpandableListView;
+import android.widget.ListView;
 import android.widget.Toast;
 
 public class AddClaimActivity extends FragmentActivity {
@@ -45,6 +51,8 @@ public class AddClaimActivity extends FragmentActivity {
 		if (!name.equals("") && !date_to.equals("") && !date_from.equals("")) {
 			Claim claim = new Claim(name, date_from, date_to);
 			ct.addIt(claim);
+			Intent intent = new Intent(AddClaimActivity.this, MainActivity.class);
+			startActivity(intent);
 		} else {
 			Toast.makeText(this,"Please fill out all fields", Toast.LENGTH_SHORT).show();
 		}

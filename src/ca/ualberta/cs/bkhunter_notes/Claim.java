@@ -59,5 +59,8 @@ public class Claim {
 //		this.description = description;
 //	}
 	
+	public String toString() {
+		return getName();
+	}
 
 }
