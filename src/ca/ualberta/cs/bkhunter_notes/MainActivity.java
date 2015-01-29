@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.database.DataSetObserver;
 import android.view.Menu;
 import android.view.View;
+import android.view.ViewDebug.IntToString;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -42,6 +43,9 @@ public class MainActivity extends Activity
 		    public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
 		    	
 		    	Intent intent = new Intent(MainActivity.this, ViewClaim.class);
+		    	Bundle bundle = new Bundle();
+		    	bundle.putInt("index", position); 
+		    	intent.putExtras(bundle); //Put your id to your next Intent
 				startActivity(intent);
 		    }
 		});

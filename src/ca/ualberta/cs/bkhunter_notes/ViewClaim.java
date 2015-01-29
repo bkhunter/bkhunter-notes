@@ -20,12 +20,21 @@ public class ViewClaim extends Activity {
 		Collection<Claim> c = ClaimController.getClaimList().getClaims();
 		ArrayList<Claim> list = new ArrayList<Claim>(c);
 		
-		String name = list.get(0).getName();
-		String dateFrom = list.get(0).getDateFrom();
-		String dateTo = list.get(0).getDateTo();
+		Bundle bundle = getIntent().getExtras();
+		int index = bundle.getInt("index");
 		
-		TextView view = (TextView) findViewById(R.id.selectedClaimTextView);
-		view.setText(name);
+		String name = list.get(index).getName();
+		String dateFrom = list.get(index).getDateFrom();
+		String dateTo = list.get(index).getDateTo();
+		
+
+		TextView claim = (TextView) findViewById(R.id.selectedClaimTextView);
+		TextView date1 = (TextView) findViewById(R.id.dateFromDisplayTextView);
+		TextView date2 = (TextView) findViewById(R.id.dateToTextView);
+		
+		claim.setText(name);
+		date1.setText(dateFrom);
+		date2.setText(dateTo);
 		
 		
 	}
