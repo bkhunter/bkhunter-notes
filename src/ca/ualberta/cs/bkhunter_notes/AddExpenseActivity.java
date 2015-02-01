@@ -108,12 +108,19 @@ public class AddExpenseActivity extends Activity implements Serializable
 	
 	public void addOneExpense(View v){
 		
-		Intent intent_prev = getIntent();
-		Claim claim = (Claim) intent_prev.getSerializableExtra("claim");
+		//Intent intent_prev = getIntent();
+		//Claim claim = (Claim) intent_prev.getSerializableExtra("claim");
 		
 		//each of these correspond to the text input in each field
+		
+		Bundle bundle = getIntent().getExtras();
+		String name = bundle.getString("name");
+		String description = bundle.getString("desc");
+		String date_from = bundle.getString("DF");
+		String date_to = bundle.getString("DT");
+		
 		EditText itemTextView = (EditText)findViewById(R.id.itemEditText);
-		EditText descTextView = (EditText)findViewById(R.id.descrEIEditText);
+		EditText descTextView = (EditText)findViewById(R.id.descrText);
 		EditText amountTextView = (EditText)findViewById(R.id.amountText);
 		Spinner categorySpinner=(Spinner) findViewById(R.id.categorySpinner);
 		Spinner currencySpinner=(Spinner) findViewById(R.id.currencySpinner);
@@ -125,11 +132,19 @@ public class AddExpenseActivity extends Activity implements Serializable
 		String currency = currencySpinner.getSelectedItem().toString();
 		Float amt = Float.valueOf(amountTextView.getText().toString());
 		
-		if (!item.equals("") && !desc.equals("") && !(amt.equals(""))) {	
+		if (!item.equals("") && !desc.equals("")) {	
+			ClaimController ct = new ClaimController();
+			Claim claim = new Claim(name, date_from, date_to, description);
+			
 			Expense_Item e = new Expense_Item(item, category, desc, amt, currency);
-			//claim.addExpense_Item(e);
+			
+			claim.addExpense_Item(e);
+			
+			ct.addIt(claim);
+		
 			Intent intent = new Intent(AddExpenseActivity.this, MainActivity.class);
 			startActivity(intent);
+			
 		} else {
 			Toast.makeText(this,"Please fill out all fields", Toast.LENGTH_SHORT).show();
 		}

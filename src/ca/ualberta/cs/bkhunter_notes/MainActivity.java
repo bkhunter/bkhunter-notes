@@ -45,10 +45,10 @@ public class MainActivity extends Activity
 		    	Intent intent = new Intent(MainActivity.this, ViewClaim.class);
 		    	Bundle bundle = new Bundle();
 		    	bundle.putInt("index", position); 
-		    	intent.putExtras(bundle); //Put your id to your next Intent
+		    	intent.putExtras(bundle); 
 				startActivity(intent);
 		    }
-		});
+		}); 
 		
 	}
 
@@ -67,7 +67,5 @@ public class MainActivity extends Activity
 		
 	}
 	
-	public void toEditClaim(View v) {
-	}
 }
 

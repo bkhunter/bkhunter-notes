@@ -42,6 +42,10 @@
             android:name="ca.ualberta.cs.bkhunter_notes.ViewClaim"
             android:label="@string/title_activity_view_claim" >
         </activity>
+        <activity
+            android:name="ca.ualberta.cs.bkhunter_notes.EditClaimActiviy"
+            android:label="@string/title_activity_edit_claim_activiy" >
+        </activity>
     </application>
 
 </manifest>

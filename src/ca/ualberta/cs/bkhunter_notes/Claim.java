@@ -2,6 +2,7 @@ package ca.ualberta.cs.bkhunter_notes;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collection;
 
 public class Claim implements Serializable{
 	
@@ -10,7 +11,7 @@ public class Claim implements Serializable{
 	public String dateFrom;
 	public String dateTo;
 	public String description;
-	public ArrayList<Expense_Item> eItems = null;
+	public ArrayList<Expense_Item> eItems;
 	public String status = "In Progress";
 	
 	public Claim(String n, String dF, String dT, String description) {
@@ -18,11 +19,17 @@ public class Claim implements Serializable{
 		this.dateFrom = dF;
 		this.dateTo = dT;
 		this.description = description;
+		
+		this.eItems = new ArrayList<Expense_Item>();
+		
 	}
 	
 	public void addExpense_Item(Expense_Item e) {
-		this.eItems.add(e);
-		
+		this.eItems.add(e);	
+	}
+	
+	public ArrayList<Expense_Item> getExpenseItems() {
+		return this.eItems;
 	}
 	
 	public String getName() {

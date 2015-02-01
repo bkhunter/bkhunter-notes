@@ -41,10 +41,10 @@ public class AddClaimActivity extends Activity {
 		ClaimController ct = new ClaimController();
 		
 		//each of these correspond to the text input in each field
-		EditText nameTextView = (EditText)findViewById(R.id.claimEditText);
-		EditText descriptionTextView = (EditText)findViewById(R.id.descrEIEditText);
-		EditText dateFromTextView = (EditText)findViewById(R.id.dateFromEditText);
-		EditText dateToTextView = (EditText)findViewById(R.id.dateToEditText);
+		EditText nameTextView = (EditText)findViewById(R.id.claimText);
+		EditText descriptionTextView = (EditText)findViewById(R.id.descrText);
+		EditText dateFromTextView = (EditText)findViewById(R.id.dateFromText);
+		EditText dateToTextView = (EditText)findViewById(R.id.dateToText);
 		
 		String name = nameTextView.getText().toString();
 		String description = descriptionTextView.getText().toString();
@@ -54,6 +54,10 @@ public class AddClaimActivity extends Activity {
 		if (!name.equals("") && !date_to.equals("") && !date_from.equals("")) {
 			Claim claim = new Claim(name, date_from, date_to, description);
 			ct.addIt(claim);
+			
+			//Expense_Item e = new Expense_Item("Test", "test", "description", (float) 5.0, "currency");
+			//claim.addExpense_Item(e);
+			
 			Intent intent = new Intent(AddClaimActivity.this, MainActivity.class);
 			startActivity(intent);
 		} else {
@@ -64,13 +68,13 @@ public class AddClaimActivity extends Activity {
 	
 	public void addExpenseAction(View v) {
 		
-		ClaimController ct = new ClaimController();
+		//ClaimController ct = new ClaimController();
 		
 		//each of these correspond to the text input in each field
-		EditText nameTextView = (EditText)findViewById(R.id.claimEditText);
-		EditText descriptionTextView = (EditText)findViewById(R.id.descrEIEditText);
-		EditText dateFromTextView = (EditText)findViewById(R.id.dateFromEditText);
-		EditText dateToTextView = (EditText)findViewById(R.id.dateToEditText);
+		EditText nameTextView = (EditText)findViewById(R.id.claimText);
+		EditText descriptionTextView = (EditText)findViewById(R.id.descrText);
+		EditText dateFromTextView = (EditText)findViewById(R.id.dateFromText);
+		EditText dateToTextView = (EditText)findViewById(R.id.dateToText);
 		
 		String name = nameTextView.getText().toString();
 		String description = descriptionTextView.getText().toString();
@@ -78,10 +82,19 @@ public class AddClaimActivity extends Activity {
 		String date_to = dateToTextView.getText().toString();
 		
 		if (!name.equals("") && !date_to.equals("") && !date_from.equals("")) {
-			Claim claim = new Claim(name, date_from, date_to, description);
-			ct.addIt(claim);
+			//Claim claim = new Claim(name, date_from, date_to, description);
+			//ct.addIt(claim);
 			Intent intent = new Intent(AddClaimActivity.this, AddExpenseActivity.class);
-			intent.putExtra("claim", claim);
+			//intent.putExtra("claim", claim);
+			
+			Bundle bundle = new Bundle();
+	    	bundle.putString("name", name);
+	    	bundle.putString("desc", description);
+	    	bundle.putString("DF", date_from);
+	    	bundle.putString("DT",date_to);
+	    	
+	    	intent.putExtras(bundle);
+	    	
 			startActivity(intent);
 		} else {
 			Toast.makeText(this,"Please fill out all fields", Toast.LENGTH_SHORT).show();

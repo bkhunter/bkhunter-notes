@@ -49,37 +49,6 @@
 	        android:layout_marginTop="18dp"
 	        android:text="Name of claim:"
 	        android:textAppearance="?android:attr/textAppearanceLarge" />
-	
-	    <TextView
-	        android:id="@+id/DateToTextView"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:layout_alignParentLeft="true"
-	        android:layout_alignParentRight="true"
-	        android:layout_below="@+id/dateFromText"
-	        android:text="Date to: \n(mm/dd/yyyy) :"
-	        android:textAppearance="?android:attr/textAppearanceLarge"
-	        android:textSize="24dp" />
-	
-	    <EditText
-	        android:id="@+id/dateFromText"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:layout_alignParentLeft="true"
-	        android:layout_alignParentRight="true"
-	        android:layout_below="@+id/dateFromTextView"
-	        android:ems="10"
-	        android:inputType="date" />
-	
-	    <EditText
-	        android:id="@+id/dateToText"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:layout_alignParentLeft="true"
-	        android:layout_alignParentRight="true"
-	        android:layout_below="@+id/DateToTextView"
-	        android:ems="10"
-	        android:inputType="date" />
 
 	    <TextView
 	        android:id="@+id/descriptionTextview"
@@ -90,26 +59,47 @@
 	        android:text="Description:"
 	        android:textAppearance="?android:attr/textAppearanceLarge" />
 
-	    <Button
-	        android:id="@+id/addExpenseButton"
+	    <EditText
+	        android:id="@+id/DFText"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:layout_alignParentLeft="true"
 	        android:layout_alignParentRight="true"
-	        android:layout_below="@+id/dateToText"
-	        android:layout_marginTop="21dp"
-	        android:onClick="addExpenseAction"
-	        android:text="Add Expense Items" />
+	        android:layout_below="@+id/dateFromTextView"
+	        android:ems="10"
+	        android:inputType="date" />
+
+	    <TextView
+	        android:id="@+id/DateToTextView"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentLeft="true"
+	        android:layout_alignParentRight="true"
+	        android:layout_below="@+id/DFText"
+	        android:text="Date to \n(mm/dd/yyyy) :"
+	        android:textAppearance="?android:attr/textAppearanceLarge"
+	        android:textSize="24dp" />
+
+	    <EditText
+	        android:id="@+id/DTtext"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentLeft="true"
+	        android:layout_alignParentRight="true"
+	        android:layout_below="@+id/DateToTextView"
+	        android:ems="10"
+	        android:inputType="date" />
 
 	    <Button
-	        android:id="@+id/dontAddButton"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:layout_alignParentLeft="true"
-	        android:layout_alignParentRight="true"
-	        android:layout_below="@+id/addExpenseButton"
-	        android:onClick="addClaimAction"
-	        android:text="No Expense Items" />
+	        android:id="@+id/updateButton"
+	        android:layout_width="150dip"
+	        android:layout_height="100dip"
+	        android:layout_below="@+id/DTtext"
+	        android:layout_centerHorizontal="true"
+	        android:layout_marginTop="16dp"
+	        android:onClick="updateAction"
+	        android:text="Update"
+	        android:textSize="36dp" />
 	
 	</RelativeLayout>
 </ScrollView>

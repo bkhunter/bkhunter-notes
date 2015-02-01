@@ -1,12 +1,13 @@
 package ca.ualberta.cs.bkhunter_notes;
 
+import java.io.Serializable;
 import java.util.Calendar;
 
 
-public class Expense_Item
+public class Expense_Item implements Serializable
 {
 	public String item;
-	public Calendar date;
+	//public Calendar date;
 	public String category;
 	public String description;
 	public Float amount;
@@ -18,7 +19,7 @@ public class Expense_Item
 
 		super();
 		this.item = item;
-		this.date = date;
+		//this.date = date;
 		this.category = category;
 		this.description = description;
 		this.amount = amount;
@@ -41,18 +42,18 @@ public class Expense_Item
 	}
 
 	
-	public Calendar getDate()
-	{
-	
-		return date;
-	}
+//	public Calendar getDate()
+//	{
+//	
+//		return date;
+//	}
 
-	
-	public void setDate(Calendar date)
-	{
-	
-		this.date = date;
-	}
+//	
+//	public void setDate(Calendar date)
+//	{
+//	
+//		this.date = date;
+//	}
 
 	
 	public String getCategory()
@@ -108,6 +109,10 @@ public class Expense_Item
 	{
 	
 		this.currency = currency;
+	}
+	
+	public String toString() {
+		return getItem();
 	}
 	
 

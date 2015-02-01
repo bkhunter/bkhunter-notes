@@ -17,31 +17,25 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textSize="36dp" />
 
-    <ImageButton
-        android:id="@+id/minusImageButton"
-        android:layout_width="85dip"
-        android:layout_height="85dip"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:background="@drawable/minus" />
-
-    <ImageButton
-        android:id="@+id/plusImageButton"
-        android:layout_width="85dip"
-        android:layout_height="85dip"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:background="@drawable/plus" />
-
     <ListView
         android:id="@+id/expenseItemsListView"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/minusImageButton"
+        android:layout_above="@+id/updateButton"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
         android:layout_below="@+id/expenseItemsTextView" >
 
     </ListView>
+
+    <Button
+        android:id="@+id/updateButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/expenseItemsListView"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/expenseItemsListView"
+        android:onClick="testToast"
+        android:text="Button" />
 
 </RelativeLayout>

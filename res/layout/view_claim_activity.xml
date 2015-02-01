@@ -19,6 +19,7 @@
         android:layout_above="@+id/emailButton"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
+        android:onClick="viewExpenseAction"
         android:text="View Expense Items" />
 
     <Button
@@ -28,6 +29,7 @@
         android:layout_above="@+id/editExpButto"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
+        android:onClick="editClaimAction"
         android:text="Edit Claim" />
 
     <TextView
