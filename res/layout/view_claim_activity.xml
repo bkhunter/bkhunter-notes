@@ -37,17 +37,8 @@
         android:layout_above="@+id/editClaimButton"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
-        android:layout_below="@+id/dateFromDisplayTextView"
+        android:layout_below="@+id/textView2"
         android:text="Description" />
-
-    <TextView
-        android:id="@+id/dateFromDisplayTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/selectedClaimTextView"
-        android:text="Date From"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
         android:id="@+id/selectedClaimTextView"
@@ -63,9 +54,10 @@
         android:id="@+id/dateToTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/descrTextView"
+        android:layout_alignBaseline="@+id/dateFromDisplayTextView"
+        android:layout_alignBottom="@+id/dateFromDisplayTextView"
         android:layout_alignParentRight="true"
-        android:layout_toRightOf="@+id/selectedClaimTextView"
+        android:layout_toRightOf="@+id/textView1"
         android:text="Date to"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
@@ -73,19 +65,40 @@
         android:id="@+id/StatusTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/dateToTextView"
-        android:layout_alignLeft="@+id/dateToTextView"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
+        android:layout_alignBaseline="@+id/selectedClaimTextView"
+        android:layout_alignBottom="@+id/selectedClaimTextView"
+        android:layout_marginLeft="28dp"
+        android:layout_toRightOf="@+id/selectedClaimTextView"
         android:text="Status"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
-    <ImageView
-        android:id="@+id/imageView1"
+    <TextView
+        android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:src="@drawable/ic_launcher" />
+        android:layout_above="@+id/descrTextView"
+        android:layout_alignTop="@+id/dateFromDisplayTextView"
+        android:layout_toRightOf="@+id/dateFromDisplayTextView"
+        android:text="-"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/dateFromDisplayTextView"
+        android:text="Description:"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="32dp" />
+
+    <TextView
+        android:id="@+id/dateFromDisplayTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/selectedClaimTextView"
+        android:text="Date From"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
 </RelativeLayout>

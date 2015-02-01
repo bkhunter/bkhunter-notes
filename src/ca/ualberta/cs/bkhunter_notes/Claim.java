@@ -1,18 +1,28 @@
 package ca.ualberta.cs.bkhunter_notes;
 
-public class Claim {
+import java.io.Serializable;
+import java.util.ArrayList;
+
+public class Claim implements Serializable{
 	
 	
 	public String name;
 	public String dateFrom;
 	public String dateTo;
-	//public String description;
-	public Expense_Item item = null;
+	public String description;
+	public ArrayList<Expense_Item> eItems = null;
+	public String status = "In Progress";
 	
-	public Claim(String n, String dF, String dT) {
+	public Claim(String n, String dF, String dT, String description) {
 		this.name = n;
 		this.dateFrom = dF;
 		this.dateTo = dT;
+		this.description = description;
+	}
+	
+	public void addExpense_Item(Expense_Item e) {
+		this.eItems.add(e);
+		
 	}
 	
 	public String getName() {
@@ -48,19 +58,27 @@ public class Claim {
 	}
 
 	
-//	public String getDescription(){
-//	
-//		return description;
-//	}
-//
-//	
-//	public void setDescription(String description){
-//	
-//		this.description = description;
-//	}
+	public String getDescription(){
+	
+		return description;
+	}
+
+	
+	public void setDescription(String description){
+	
+		this.description = description;
+	}
 	
 	public String toString() {
 		return getName();
 	}
 
+	public String getStatus() {
+		return status;
+	}
+	
+	public void setStatus(String s) {
+		this.status = s;
+	}
+	
 }

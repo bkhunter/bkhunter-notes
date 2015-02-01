@@ -26,15 +26,21 @@ public class ViewClaim extends Activity {
 		String name = list.get(index).getName();
 		String dateFrom = list.get(index).getDateFrom();
 		String dateTo = list.get(index).getDateTo();
+		String description = list.get(index).getDescription();
+		String status = list.get(index).getStatus();
 		
-
-		TextView claim = (TextView) findViewById(R.id.selectedClaimTextView);
-		TextView date1 = (TextView) findViewById(R.id.dateFromDisplayTextView);
-		TextView date2 = (TextView) findViewById(R.id.dateToTextView);
+		TextView descr_view = (TextView) findViewById(R.id.descrTextView);
+		TextView claim_view = (TextView) findViewById(R.id.selectedClaimTextView);
+		TextView date1_view = (TextView) findViewById(R.id.dateFromDisplayTextView);
+		TextView date2_view = (TextView) findViewById(R.id.dateToTextView);
+		TextView status_view = (TextView) findViewById(R.id.StatusTextView);
 		
-		claim.setText(name);
-		date1.setText(dateFrom);
-		date2.setText(dateTo);
+		
+		claim_view.setText(name);
+		date1_view.setText(dateFrom);
+		date2_view.setText(dateTo);
+		descr_view.setText(description);
+		status_view.setText(status);
 		
 		
 	}

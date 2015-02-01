@@ -32,14 +32,14 @@ public final class R {
     public static final class id {
         public static final int AmountTextView=0x7f09000c;
         public static final int DateToTextView=0x7f090016;
-        public static final int StatusTextView=0x7f090028;
-        public static final int action_settings=0x7f09002a;
+        public static final int StatusTextView=0x7f09002a;
+        public static final int action_settings=0x7f09002b;
         public static final int addClaimButton=0x7f09000f;
         public static final int addEItextview=0x7f090000;
         public static final int addExpenseButton=0x7f090019;
         public static final int addMultButton=0x7f090005;
         public static final int addSingleButton=0x7f090006;
-        public static final int amtEditText=0x7f09000e;
+        public static final int amountText=0x7f09000e;
         public static final int categorySpinner=0x7f090009;
         public static final int categoryTextView=0x7f090002;
         public static final int claimEditText=0x7f090012;
@@ -48,7 +48,7 @@ public final class R {
         public static final int currencySpinner=0x7f09000a;
         public static final int currencyTextView=0x7f09000b;
         public static final int dateEditText=0x7f090008;
-        public static final int dateFromDisplayTextView=0x7f090025;
+        public static final int dateFromDisplayTextView=0x7f090028;
         public static final int dateFromEditText=0x7f090017;
         public static final int dateFromTextView=0x7f090015;
         public static final int dateTextView=0x7f090003;
@@ -66,13 +66,14 @@ public final class R {
         public static final int expenseItemsListView=0x7f09001e;
         public static final int expenseItemsTextView=0x7f09001b;
         public static final int groupTextView=0x7f09001f;
-        public static final int imageView1=0x7f090029;
         public static final int itemEditText=0x7f090007;
         public static final int itemTextView=0x7f090020;
         public static final int itemTextView1=0x7f090001;
         public static final int minusImageButton=0x7f09001c;
         public static final int plusImageButton=0x7f09001d;
         public static final int selectedClaimTextView=0x7f090026;
+        public static final int textView1=0x7f090029;
+        public static final int textView2=0x7f090025;
     }
     public static final class layout {
         public static final int activity_add_expense=0x7f030000;
