@@ -43,16 +43,16 @@ public class EditExpenseActivity extends Activity
 		ClaimListManager.initManager(this.getApplicationContext());
 		
 		Bundle bundle = getIntent().getExtras();
-		int ePos = bundle.getInt("index");
-		int cPos = bundle.getInt("c_index");
+		int ex_index = bundle.getInt("index");
+		int c_index = bundle.getInt("c_index");
 		
-		this.setIndex(cPos);
-		this.setE_index(ePos);
+		this.setIndex(c_index);
+		this.setE_index(ex_index);
 		
 		Collection<Claim> c = ClaimController.getClaimList().getClaims();
 		ArrayList<Claim> list = new ArrayList<Claim>(c);
 		
-		Expense_Item eItem = list.get(cPos).getExpenseItems().get(ePos);
+		Expense_Item eItem = list.get(c_index).getExpenseItems().get(e_index);
 		
 		String item = eItem.getItem();
 		String currency = eItem.getCurrency();
@@ -144,7 +144,24 @@ public class EditExpenseActivity extends Activity
 		startActivity(intent);
 		
 		
+	}
+	
+	public void deleteAction(View v) {
+		Collection<Claim> c = ClaimController.getClaimList().getClaims();
+		ArrayList<Claim> list = new ArrayList<Claim>(c);
+    	
+		Claim claim = list.get(this.getIndex());
+		Expense_Item e = claim.getExpenseItems().get(this.getE_index());
 		
+		claim.getExpenseItems().remove(e);
+		
+		Intent intent = new Intent(EditExpenseActivity.this, ExpenseItems.class);
+		int position = this.getIndex();
+		Bundle bundle = new Bundle();
+    	bundle.putInt("index", position); 
+    	intent.putExtras(bundle); 
+    	
+		startActivity(intent);
 	}
 
 }

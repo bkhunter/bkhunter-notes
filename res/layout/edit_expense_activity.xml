@@ -58,7 +58,6 @@
         android:layout_width="125dip"
         android:layout_height="100dip"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
         android:layout_alignRight="@+id/addEItextview"
         android:onClick="editAction"
         android:text="Update" />
@@ -122,7 +121,7 @@
         android:id="@+id/descriptionTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/addSingleButton"
+        android:layout_alignParentLeft="true"
         android:layout_centerVertical="true"
         android:text="Description:"
         android:textAppearance="?android:attr/textAppearanceLarge" />
@@ -155,5 +154,16 @@
         android:layout_alignTop="@+id/descriptionTextView"
         android:ems="10"
         android:inputType="textMultiLine" />
+
+    <Button
+        android:id="@+id/delButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignTop="@+id/addSingleButton"
+        android:layout_toLeftOf="@+id/currencySpinner"
+        android:onClick="deleteAction"
+        android:text="Delete" />
 
 </RelativeLayout>

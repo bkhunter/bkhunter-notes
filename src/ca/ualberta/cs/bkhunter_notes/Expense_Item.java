@@ -113,7 +113,7 @@ public class Expense_Item implements Serializable
 	
 	// This is used for listview output
 	public String toString() {
-		return getItem();
+		return getItem() + "       @" + getDate();
 	}
 	
 	// This is used for converting necessary

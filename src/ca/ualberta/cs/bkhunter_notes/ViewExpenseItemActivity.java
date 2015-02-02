@@ -82,8 +82,8 @@ public class ViewExpenseItemActivity extends Activity {
 			Intent intent = new Intent(ViewExpenseItemActivity.this, EditExpenseActivity.class);
 			
 			Bundle bundle = new Bundle();
+	    	bundle.putInt("index", this.getEIndex());
 	    	bundle.putInt("c_index", this.getIndex());
-	    	bundle.putInt("e_index", this.getEIndex());
 	    	intent.putExtras(bundle); 
 	    	
 			startActivity(intent);
