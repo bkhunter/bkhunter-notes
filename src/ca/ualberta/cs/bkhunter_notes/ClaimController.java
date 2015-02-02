@@ -2,11 +2,16 @@ package ca.ualberta.cs.bkhunter_notes;
 
 import java.io.IOException;
 
-
+// This is a Singleton controller that is used to 
+// access the claimList and thus subsequent claims
+// throughout the app
 public class ClaimController {
 	
 	private static ClaimList claimList = null;
 	
+	// This constructor is geared towards serialization
+	// but at the moment I believe it just returns
+	// the claimlist 
 	static public ClaimList getClaimList() {
 		if (claimList == null) {
 			try {
