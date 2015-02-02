@@ -1,3 +1,6 @@
+// Copyright (c) 2015 Ben Hunter
+// See LICENSE.txt for copying permission.
+
 package ca.ualberta.cs.bkhunter_notes;
 
 import java.util.ArrayList;
@@ -10,6 +13,10 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.TextView;
 
+//This class supports viewing the information of a single
+//Expense_Item
+
+//From here you can edit/delete it or go back
 public class ViewExpenseItemActivity extends Activity {
 	
 	int c_ind;
@@ -43,6 +50,7 @@ public class ViewExpenseItemActivity extends Activity {
 		this.setIndex(c_index);
 		this.setEIndex(ex_index);
 		
+		//Again, Listview Inspiration from Student picker and 
 		//http://www.androidhive.info/2011/10/android-listview-tutorial/ on 01/26/2015
 		Collection<Claim> c = ClaimController.getClaimList().getClaims();
 		ArrayList<Claim> list = new ArrayList<Claim>(c);

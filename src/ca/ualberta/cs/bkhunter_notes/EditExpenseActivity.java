@@ -1,3 +1,6 @@
+// Copyright (c) 2015 Ben Hunter
+// See LICENSE.txt for copying permission.
+
 package ca.ualberta.cs.bkhunter_notes;
 
 import java.util.ArrayList;
@@ -12,6 +15,11 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 
+// This is the class that corresponds to editing an Expense Activity
+// Similarly to editing a claim it first sets the textviews with the
+// old data, and allows the user to change it
+
+// Also It allows delete expense_items is done here.
 public class EditExpenseActivity extends Activity
 {
 	
@@ -76,7 +84,8 @@ public class EditExpenseActivity extends Activity
 
 		int catPosition = 0;
 		int curPosition = 0;
-		
+		// This is a litle loop to find which spinner item was chosen and
+		// display it upon creation
 		for (int i = 0; i< 8; i++) {
 			if (categorySpinner.getItemAtPosition(i).toString() == category) {
 				catPosition = i;
@@ -88,7 +97,6 @@ public class EditExpenseActivity extends Activity
 				curPosition = i;
 			}
 		}
-		
 		
 		currencySpinner.setSelection(curPosition);
 		categorySpinner.setSelection(catPosition);
@@ -103,6 +111,7 @@ public class EditExpenseActivity extends Activity
 		return true;
 	}
 	
+	//Udates the instance with the new entries
 	public void editAction(View v) {
 		Collection<Claim> c = ClaimController.getClaimList().getClaims();
 		ArrayList<Claim> list = new ArrayList<Claim>(c);
@@ -145,7 +154,7 @@ public class EditExpenseActivity extends Activity
 		
 		
 	}
-	
+	//deletes the entry and returns to expense_item view
 	public void deleteAction(View v) {
 		Collection<Claim> c = ClaimController.getClaimList().getClaims();
 		ArrayList<Claim> list = new ArrayList<Claim>(c);

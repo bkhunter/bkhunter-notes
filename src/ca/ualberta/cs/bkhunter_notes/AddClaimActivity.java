@@ -46,6 +46,8 @@ public class AddClaimActivity extends Activity {
 		return true;
 	}
 	
+	
+	// This is the OnClick Method to Add a claim, without an expense Item
 	public void addClaimAction(View v) {
 		ClaimController ct = new ClaimController();
 		
@@ -60,7 +62,10 @@ public class AddClaimActivity extends Activity {
 		String date_from = dateFromTextView.getText().toString();
 		String date_to = dateToTextView.getText().toString();
 		
-		//http://stackoverflow.com/questions/12455905/how-to-convert-string-to-date-in-android on 02/01/2015
+		
+		// The date input is a String, and must be convert to type Date to sort
+		// This method inspired by User Korcholis @
+		// http://stackoverflow.com/questions/12455905/how-to-convert-string-to-date-in-android on 02/01/2015
 		SimpleDateFormat makeFormat = new SimpleDateFormat("yyyy-MM-dd");
 		//String datenow="20120917121823";
 		
@@ -87,10 +92,8 @@ public class AddClaimActivity extends Activity {
 		
 		
 	}
-	
+	// This is the method to add a claim with an expense item
 	public void addExpenseAction(View v) {
-		
-		//ClaimController ct = new ClaimController();
 		
 		//each of these correspond to the text input in each field
 		EditText nameTextView = (EditText)findViewById(R.id.claimText);
@@ -102,6 +105,10 @@ public class AddClaimActivity extends Activity {
 		String description = descriptionTextView.getText().toString();
 		String date_from = dateFromTextView.getText().toString();
 		String date_to = dateToTextView.getText().toString();
+		
+		// The date input is a String, and must be convert to type Date to sort
+		// This method inspired by User Korcholis @
+		// http://stackoverflow.com/questions/12455905/how-to-convert-string-to-date-in-android on 02/01/2015
 		SimpleDateFormat makeFormat = new SimpleDateFormat("yyyy-MM-dd");
 		
 		Date date2 = null;

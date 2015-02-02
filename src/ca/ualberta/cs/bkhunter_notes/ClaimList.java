@@ -29,8 +29,8 @@ public class ClaimList implements Serializable {
 		
 	}
 	
-	// This code is from my Serialization implementation
-	// which at the moment doesn't work
+	// This code, inspired by The saga of StudentPicker (see Readme)
+	// updates the listview as it changes.
 	private ArrayList<Listener> getListeners() {
 		if (listeners == null) {
 			listeners = new ArrayList<Listener>();

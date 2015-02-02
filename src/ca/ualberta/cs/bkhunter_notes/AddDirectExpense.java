@@ -18,6 +18,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+// This Class corresponds to Adding an Expense Directly to a claim (in Edit Claim Section)
 public class AddDirectExpense extends Activity
 {
 	
@@ -48,11 +49,15 @@ public class AddDirectExpense extends Activity
 		setContentView(R.layout.add_direct_expense_activity);
 		ClaimListManager.initManager(this.getApplicationContext());
 		
+		//Bundle index of claim to access it
 		Bundle bundle = getIntent().getExtras();
 		int index = bundle.getInt("index");
 		this.setIndex(index);
 	}
 	
+	
+	// The following Spinner Implementation was guided by Mykyong @
+	// http://www.mkyong.com/android/android-spinner-drop-down-list-example/ on  01/25/2015
 	public void addItemsOnSpinner() {
 		categorySpinner = (Spinner)findViewById(R.id.categorySpinner);
 		List<String> list = new ArrayList<String>();
@@ -126,7 +131,7 @@ public class AddDirectExpense extends Activity
 		getMenuInflater().inflate(R.menu.add_direct_expense, menu);
 		return true;
 	}
-	
+	// This action finishes the add, by takng the text and creating the claim
 	public void finishAction(View v) {
 		
 		EditText itemTextView = (EditText)findViewById(R.id.itemEditText);
@@ -168,7 +173,6 @@ public class AddDirectExpense extends Activity
 			Toast.makeText(this,"Please fill out all fields", Toast.LENGTH_SHORT).show();
 		}
 		
-		//Toast.makeText(this,"test", Toast.LENGTH_SHORT).show();
 	}
 
 }

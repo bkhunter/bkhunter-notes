@@ -1,3 +1,6 @@
+// Copyright (c) 2015 Ben Hunter
+// See LICENSE.txt for copying permission.
+
 package ca.ualberta.cs.bkhunter_notes;
 
 import java.text.ParseException;
@@ -14,6 +17,11 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
+
+// This class displays the information of a claim.
+// It supports editing the claim, changing it's status
+// emailing, viewing it's expenses
+// and going back to the MainActivity
 
 public class ViewClaim extends Activity {
 	
@@ -38,7 +46,9 @@ public class ViewClaim extends Activity {
 		int index = bundle.getInt("index");
 		this.setIndex(index);
 		
+		//This tutorial, and Student Picker helped me get my listview to display
 		//http://www.androidhive.info/2011/10/android-listview-tutorial/ on 01/26/2015
+		
 		Collection<Claim> c = ClaimController.getClaimList().getClaims();
 		ArrayList<Claim> list = new ArrayList<Claim>(c);
 		
@@ -71,7 +81,7 @@ public class ViewClaim extends Activity {
 		getMenuInflater().inflate(R.menu.view_claim, menu);
 		return true;
 	}
-	
+	//method to view a claims expenses
 	public void viewExpenseAction(View v) {
 		Intent intent = new Intent(ViewClaim.this, ExpenseItems.class);
 		int position = this.getIndex();
@@ -81,7 +91,7 @@ public class ViewClaim extends Activity {
 		startActivity(intent);
 		
 	}
-	
+	//Edit claim method
 	public void editClaimAction(View v) {
 		Collection<Claim> c = ClaimController.getClaimList().getClaims();
 		ArrayList<Claim> list = new ArrayList<Claim>(c);
@@ -103,13 +113,13 @@ public class ViewClaim extends Activity {
 		
 		
 	}
-	
+	//Back to MainAcivity
 	public void goBack(View v) throws ParseException {
 		Intent intent = new Intent(ViewClaim.this, MainActivity.class);
 		startActivity(intent);
 				
 	}
-	
+	//Change the status
 	public void ChangeStatus(View v) {
 		Intent intent = new Intent(ViewClaim.this, ChangeStatus.class);
 		int position = this.getIndex();
@@ -119,8 +129,9 @@ public class ViewClaim extends Activity {
 		startActivity(intent);
 		
 	}
-	//fixEdd
-	//https://stackoverflow.com/questions/2197741/how-can-i-send-emails-from-my-android-application
+	//Inspired by user fixEdd
+	//https://stackoverflow.com/questions/2197741/how-can-i-send-emails-from-my-android-application on 02/01/2015
+	//Emails the claim
 	public void EmailAction(View v) {
 		
 		Collection<Claim> c = ClaimController.getClaimList().getClaims();

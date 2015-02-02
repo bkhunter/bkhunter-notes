@@ -1,3 +1,6 @@
+// Copyright (c) 2015 Ben Hunter
+// See LICENSE.txt for copying permission.
+
 package ca.ualberta.cs.bkhunter_notes;
 
 import java.io.Serializable;
@@ -31,6 +34,7 @@ public class Expense_Item implements Serializable
 		
 	}
 
+	//Getters and Setter for each attribute
 	
 	public String getDate() {
 		return date;

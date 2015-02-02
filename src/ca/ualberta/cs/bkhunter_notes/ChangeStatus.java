@@ -1,3 +1,6 @@
+// Copyright (c) 2015 Ben Hunter
+// See LICENSE.txt for copying permission.
+
 package ca.ualberta.cs.bkhunter_notes;
 
 import java.util.ArrayList;
@@ -9,6 +12,7 @@ import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
 
+// This class implements changing a Claim's status (submitted, returned, etc.)
 public class ChangeStatus extends Activity
 {
 	
@@ -49,6 +53,13 @@ public class ChangeStatus extends Activity
 		getMenuInflater().inflate(R.menu.change_status, menu);
 		return true;
 	}
+	
+	
+	/* What follows is a separate function for each status
+	 type, each correspond to the appropriate button. They
+	 Each change the status and return.
+	 */
+
 	
 	public void InProgAction(View v) {
 		

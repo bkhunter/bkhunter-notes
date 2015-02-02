@@ -1,3 +1,6 @@
+// Copyright (c) 2015 Ben Hunter
+// See LICENSE.txt for copying permission.
+
 package ca.ualberta.cs.bkhunter_notes;
 
 import java.io.Serializable;
@@ -17,6 +20,9 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
+
+// This class displays the expense_items. It supports an add button, a
+// back to claim button, and a clickable listview, with a dialog prompt
 
 public class ExpenseItems extends Activity implements Serializable{
 
@@ -52,15 +58,14 @@ public class ExpenseItems extends Activity implements Serializable{
 	}
 
 	@Override
+	//Sets list view, and makes items clickable
 	protected void onCreate(Bundle savedInstanceState)
 	{
 
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.expense_items_activity);
 		ClaimListManager.initManager(this.getApplicationContext());
-		
-		//Intent intent_prev = getIntent();
-		//Claim claim = (Claim) intent_prev.getSerializableExtra("claim");
+
 		
 		Bundle bundle = getIntent().getExtras();
 		final int c_index = bundle.getInt("index");
@@ -125,7 +130,7 @@ public class ExpenseItems extends Activity implements Serializable{
 		getMenuInflater().inflate(R.menu.expense_items, menu);
 		return true;
 	}
-	
+	//add Expense_Item method
 	public void addDirExpense(View v) {
 		Intent intent = new Intent(ExpenseItems.this, AddDirectExpense.class);
 		Bundle bundle = new Bundle();
@@ -133,7 +138,7 @@ public class ExpenseItems extends Activity implements Serializable{
     	intent.putExtras(bundle); 
 		startActivity(intent);
 	}
-	
+	//Goes back to Claim activity
 	public void backAction(View v) {
 		Intent intent = new Intent(ExpenseItems.this, ViewClaim.class);
 		Bundle bundle = new Bundle();

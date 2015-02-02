@@ -1,3 +1,6 @@
+// Copyright (c) 2015 Ben Hunter
+// See LICENSE.txt for copying permission.
+
 package ca.ualberta.cs.bkhunter_notes;
 
 import java.util.ArrayList;
@@ -25,6 +28,9 @@ import android.widget.ExpandableListView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+// MainActivity supports adding claims, populating a listview
+// with clickable items, and dialog prompts that lead to either
+// deleting a claim, viewing a claim, and seeing it's currenc totals
 public class MainActivity extends Activity
 {
 	@Override
@@ -43,12 +49,12 @@ public class MainActivity extends Activity
 		
 		Collections.sort(list);
 		
-		
+		//set list view
 		final ArrayAdapter<Claim> claimAdapter = new ArrayAdapter<Claim>(this, android.R.layout.simple_list_item_1, list);
 		
 		listView.setAdapter(claimAdapter);
 		
-		
+		//Listener allows in-time updates
 		ClaimController.getClaimList().addListener(new Listener() {
 			
 			@Override
@@ -62,7 +68,7 @@ public class MainActivity extends Activity
 			}
 			
 		});
-		
+		//dialog set-up
 		listView.setOnItemClickListener(new OnItemClickListener() {    
 		    @Override
 		    
@@ -143,7 +149,7 @@ public class MainActivity extends Activity
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
-	
+	//starts the intent to add a claim
 	public void addClaim(View v) {
 		Intent intent = new Intent(MainActivity.this, AddClaimActivity.class);
 		startActivity(intent);

@@ -1,3 +1,6 @@
+// Copyright (c) 2015 Ben Hunter
+// See LICENSE.txt for copying permission.
+
 package ca.ualberta.cs.bkhunter_notes;
 
 import java.text.ParseException;
@@ -13,6 +16,9 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
+
+// This Activity is used to Edit Claims. It resembles adding a claim, but 
+// puts the old input into textViews beforehand
 
 public class EditClaimActiviy extends Activity
 {
@@ -37,6 +43,8 @@ public class EditClaimActiviy extends Activity
 
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.edit_claim_activity);
+		
+		//Always need the index to reference the claim
 		Bundle bundle = getIntent().getExtras();
 		int index = bundle.getInt("index");
 		this.setIndex(index);
@@ -51,6 +59,7 @@ public class EditClaimActiviy extends Activity
 		EditText dfEditText = (EditText) findViewById(R.id.DFText);
 		EditText dtEditText = (EditText) findViewById(R.id.DTtext);
 		
+		//Sets the old items on Creation
 		dfEditText.setText(claim.getDateFGiven());
 		dtEditText.setText(claim.getDateTGiven());
 		nameEditText.setText(claim.getName());
@@ -70,6 +79,7 @@ public class EditClaimActiviy extends Activity
 		return true;
 	}
 	
+	//Updates the claim instance with the new values
 	public void updateAction(View v){
 		
 		int pos = this.getIndex();

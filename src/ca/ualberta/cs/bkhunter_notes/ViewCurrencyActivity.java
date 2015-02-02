@@ -1,3 +1,6 @@
+// Copyright (c) 2015 Ben Hunter
+// See LICENSE.txt for copying permission.
+
 package ca.ualberta.cs.bkhunter_notes;
 
 import java.util.ArrayList;
@@ -7,6 +10,9 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
 import android.widget.TextView;
+
+//This class sums up and shows the total currency amounts 
+//for each expense item in a claim
 
 public class ViewCurrencyActivity extends Activity {
 	

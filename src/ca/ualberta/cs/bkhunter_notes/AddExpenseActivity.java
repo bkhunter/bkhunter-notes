@@ -1,3 +1,6 @@
+// Copyright (c) 2015 Ben Hunter
+// See LICENSE.txt for copying permission.
+
 package ca.ualberta.cs.bkhunter_notes;
 
 
@@ -19,8 +22,10 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 
-
+// Again the spinners were guided by Mkyong@
 //http://www.mkyong.com/android/android-spinner-drop-down-list-example/ 01/25/2015
+
+// This activity adds an expense Item after the user adds a claim from the start menu
 public class AddExpenseActivity extends Activity implements Serializable
 {
 	
@@ -56,7 +61,6 @@ public class AddExpenseActivity extends Activity implements Serializable
 	public void addItemsOnSpinner2() {
 		
 		currencySpinner = (Spinner)findViewById(R.id.currencySpinner);
-		
 		List<String> list = new ArrayList<String>();
 		list.add("list 1");
 		list.add("list 2");
@@ -115,6 +119,7 @@ public class AddExpenseActivity extends Activity implements Serializable
 	public void addOneExpense(View v) throws ParseException{
 		//each of these correspond to the text input in each field
 		
+		//Get all needed fields for claim construction via bundle
 		Bundle bundle = getIntent().getExtras();
 		String name = bundle.getString("name");
 		String description = bundle.getString("desc");
@@ -137,6 +142,9 @@ public class AddExpenseActivity extends Activity implements Serializable
 		
 		int amt = Integer.valueOf(amountTextView.getText().toString());
 		
+		// The date input is a String, and must be convert to type Date to sort
+		// This method inspired by User Korcholis @
+		// http://stackoverflow.com/questions/12455905/how-to-convert-string-to-date-in-android on 02/01/2015
 		SimpleDateFormat makeFormat = new SimpleDateFormat("yyyy-MM-dd");
 		
 		Date date2 = (Date) makeFormat.parse(date_from);

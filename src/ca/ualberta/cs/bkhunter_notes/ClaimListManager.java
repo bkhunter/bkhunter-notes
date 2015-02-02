@@ -15,6 +15,8 @@ import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.util.Base64;
 
+// This is Largely taken from StudentPicker. I tried to use it
+// to Serialize, but due lack of Time I don't use it effectively.
 public class ClaimListManager {
 	
 	static final String preferenceFile = "claimList";

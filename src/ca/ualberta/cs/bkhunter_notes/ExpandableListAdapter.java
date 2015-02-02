@@ -1,9 +1,16 @@
+// Copyright (c) 2015 Ben Hunter
+// See LICENSE.txt for copying permission.
+
 package ca.ualberta.cs.bkhunter_notes;
 
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 
+//I tried to get an expandable list view earlier on, but dedcided against it.
+//I don't think I need this class at all, but am afraid at this point to remove it
+
+//**Note try remove this class after submission
 
 public class ExpandableListAdapter extends BaseExpandableListAdapter
 {

@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 
-// this is the main claim class for the travel claim app.
+// this is the main claim class for the travel app.
 // It holds all the various information such as claim name,
 // description, etc. Each claim has an ArrayList of Expense Items.
 public class Claim implements Serializable, Comparable<Claim> {
@@ -40,7 +40,7 @@ public class Claim implements Serializable, Comparable<Claim> {
 		this.eItems = new ArrayList<Expense_Item>();
 		
 	}
-	
+	// Getters and Setters for each attribute
 	
 	public String getDateFGiven()
 	{
@@ -125,7 +125,7 @@ public class Claim implements Serializable, Comparable<Claim> {
 	}
 	
 	// This method is called to convert necessary information from a claim to a string
-	// which is sent to email app
+	// which is sent to an email app. I had k9mail installed on my AVD.
 	public String toEmailString() {
 		StringBuilder builder = new StringBuilder();
 		builder.append("Claim Report :")
@@ -165,13 +165,11 @@ public class Claim implements Serializable, Comparable<Claim> {
 	public void setStatus(String s) {
 		this.status = s;
 	}
-	// Code from here down was from my trying to implement serialization
-	// I do not end up using it, but I think it could be useful down the line
 	
+	// Comparison function for Sorting by Date
 	public int compareTo(Claim other) {
 		
 	      if (other.getDateFrom() == null) {
-	    	  //Log.i("LOL", "uh oh it's null")
 		        return 0;
 	      }
 	      
@@ -179,6 +177,11 @@ public class Claim implements Serializable, Comparable<Claim> {
 		
 		
 	}
+	// Code from here down was from my trying to implement serialization
+	// I do not end up using it, but I think it could be useful down the line,
+	// Thus I kept it.
+	
+
 	public boolean equals(Object compareClaim) {
 		if (compareClaim == null) {
 			return false;
