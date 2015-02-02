@@ -3,7 +3,11 @@ package ca.ualberta.cs.bkhunter_notes;
 import java.io.Serializable;
 import java.util.Calendar;
 
-
+// This class represents an Expense item.
+// An instance of this class holds various
+// information about an expense such as
+// What it was, When it happened, how much
+// it cost etc.
 public class Expense_Item implements Serializable
 {
 	public String item;
@@ -107,10 +111,14 @@ public class Expense_Item implements Serializable
 		this.currency = currency;
 	}
 	
+	// This is used for listview output
 	public String toString() {
 		return getItem();
 	}
 	
+	// This is used for converting necessary
+	// expense item information into and 
+	// email ready string.
 	public String toEmailString() {
 	
 		StringBuilder builder = new StringBuilder();
