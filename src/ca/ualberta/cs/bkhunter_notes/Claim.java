@@ -1,3 +1,6 @@
+// Copyright (c) 2015 Ben Hunter
+// See LICENSE.txt for copying permission.
+
 package ca.ualberta.cs.bkhunter_notes;
 
 import java.io.Serializable;
@@ -5,13 +8,16 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 
+// this is the main claim class for the travel claim app.
+// It holds all the various information such as claim name,
+// description, etc. Each claim has an ArrayList of Expense Items.
 public class Claim implements Serializable, Comparable<Claim> {
-	
 	
 	/**
 	 * Claim Serializable ID
 	 */
 	private static final long serialVersionUID = 8828718735747595331L;
+	
 	public String name;
 	public Date dateFrom;
 	public Date dateTo;
@@ -113,11 +119,13 @@ public class Claim implements Serializable, Comparable<Claim> {
 	
 		this.description = description;
 	}
-	
+	// This method is called to display select information about a claim in a listview
 	public String toString() {
 		return (getName() + "    @" + getDateFGiven());
 	}
 	
+	// This method is called to convert necessary information from a claim to a string
+	// which is sent to email app
 	public String toEmailString() {
 		StringBuilder builder = new StringBuilder();
 		builder.append(this.getName())
@@ -146,6 +154,8 @@ public class Claim implements Serializable, Comparable<Claim> {
 	public void setStatus(String s) {
 		this.status = s;
 	}
+	// Code from here down was from my trying to implement serialization
+	// I do not end up using it, but I think it could be useful down the line
 	
 	public int compareTo(Claim other) {
 		
