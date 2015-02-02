@@ -5,7 +5,9 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 
-
+// This class is used to keep a list of all claims
+// which is useful for adapting them to a listview
+// and sorting etc.
 public class ClaimList implements Serializable {
 	
 	
@@ -23,6 +25,9 @@ public class ClaimList implements Serializable {
 		this.listeners = new ArrayList<Listener>();
 		
 	}
+	
+	// This code is from my Serialization implementation
+	// which at the moment doesn't work
 	private ArrayList<Listener> getListeners() {
 		if (listeners == null) {
 			listeners = new ArrayList<Listener>();
@@ -54,6 +59,8 @@ public class ClaimList implements Serializable {
 		return false;
 	}
 	
+	// Listeners are used update a listview on line
+	// in an activity.
 	public void notifyListeners() {
 		
 		for (Listener listener : getListeners())
