@@ -1,11 +1,15 @@
 package ca.ualberta.cs.bkhunter_notes;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Date;
 
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
+import android.text.format.DateFormat;
 import android.view.Menu;
 import android.view.View;
 import android.widget.TextView;
@@ -49,7 +53,6 @@ public class ViewClaim extends Activity {
 		TextView date2_view = (TextView) findViewById(R.id.dateToTextView);
 		TextView status_view = (TextView) findViewById(R.id.StatusTextView);
 		
-		
 		claim_view.setText(name);
 		date1_view.setText(dateFrom);
 		date2_view.setText(dateTo);
@@ -86,6 +89,30 @@ public class ViewClaim extends Activity {
     	intent.putExtras(bundle); 
 		startActivity(intent);
 		
+		
+	}
+	
+	public void goBack(View v) throws ParseException {
+		
+		Collection<Claim> c = ClaimController.getClaimList().getClaims();
+		ArrayList<Claim> list = new ArrayList<Claim>(c);
+		//Intent intent = new Intent(ViewClaim.this, MainActivity.class);
+		//startActivity(intent);
+		
+		Claim claim = list.get(this.getIndex());
+		
+		String dateFrom = claim.getDateFrom();
+		
+		//http://stackoverflow.com/questions/12455905/how-to-convert-string-to-date-in-android on 02/01/2015
+		SimpleDateFormat makeFormat = new SimpleDateFormat("yyyyMMdd");
+		//String datenow="20120917121823";		
+		Date date2 = (Date) makeFormat.parse(dateFrom);
+		Date date3 = (Date) makeFormat.parse(claim.dateTo);
+		
+		
+			
+		
+		Toast.makeText(this, Integer.toString(date2.compareTo(date3)), Toast.LENGTH_SHORT).show();
 		
 	}
 

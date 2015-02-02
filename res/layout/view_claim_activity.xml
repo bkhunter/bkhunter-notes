@@ -3,35 +3,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
-    <Button
-        android:id="@+id/emailButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:text="Email Claim" />
-
-    <Button
-        android:id="@+id/editExpButto"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/emailButton"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:onClick="viewExpenseAction"
-        android:text="View Expense Items" />
-
-    <Button
-        android:id="@+id/editClaimButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/editExpButto"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:onClick="editClaimAction"
-        android:text="Edit Claim" />
-
     <TextView
         android:id="@+id/descrTextView"
         android:layout_width="wrap_content"
@@ -48,6 +19,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@+id/StatusTextView"
         android:text="Claim1"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textSize="48dp" />
@@ -69,8 +41,7 @@
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/selectedClaimTextView"
         android:layout_alignBottom="@+id/selectedClaimTextView"
-        android:layout_marginLeft="28dp"
-        android:layout_toRightOf="@+id/selectedClaimTextView"
+        android:layout_toRightOf="@+id/textView2"
         android:text="Status"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
@@ -89,7 +60,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/dateFromDisplayTextView"
+        android:layout_below="@+id/dateToTextView"
+        android:layout_marginTop="25dp"
         android:text="Description:"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textSize="32dp" />
@@ -100,7 +72,47 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/selectedClaimTextView"
+        android:layout_marginTop="17dp"
         android:text="Date From"
         android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <Button
+        android:id="@+id/editClaimButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/editExpButto"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:onClick="editClaimAction"
+        android:text="Edit Claim" />
+
+    <Button
+        android:id="@+id/emailButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/homeButton"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:text="Email Claim" />
+
+    <Button
+        android:id="@+id/homeButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:onClick="goBack"
+        android:text="View All Claims" />
+
+    <Button
+        android:id="@+id/editExpButto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/emailButton"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:onClick="viewExpenseAction"
+        android:text="View Expense Items" />
 
 </RelativeLayout>

@@ -91,7 +91,7 @@
 	        android:inputType="date" />
 
 	    <Button
-	        android:id="@+id/updateButton"
+	        android:id="@+id/addButton"
 	        android:layout_width="150dip"
 	        android:layout_height="100dip"
 	        android:layout_below="@+id/DTtext"

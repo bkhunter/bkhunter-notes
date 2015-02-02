@@ -46,6 +46,10 @@
             android:name="ca.ualberta.cs.bkhunter_notes.EditClaimActiviy"
             android:label="@string/title_activity_edit_claim_activiy" >
         </activity>
+        <activity
+            android:name="ca.ualberta.cs.bkhunter_notes.AddDirectExpense"
+            android:label="@string/title_activity_add_direct_expense" >
+        </activity>
     </application>
 
 </manifest>

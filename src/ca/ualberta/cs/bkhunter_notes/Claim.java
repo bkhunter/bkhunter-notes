@@ -77,7 +77,7 @@ public class Claim implements Serializable{
 	}
 	
 	public String toString() {
-		return getName();
+		return (getName() + "    " + getDateFrom());
 	}
 
 	public String getStatus() {

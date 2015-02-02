@@ -1,7 +1,7 @@
 package ca.ualberta.cs.bkhunter_notes;
 
-import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import android.os.Bundle;
@@ -15,22 +15,38 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-//http://www.mkyong.com/android/android-spinner-drop-down-list-example/ 01/25/2015
-
-public class AddExpenseActivity extends Activity implements Serializable
+public class AddDirectExpense extends Activity
 {
-	//Spinners are the drop down lists
+	
+	int index;
+
+	
+	public int getIndex()
+	{
+	
+		return index;
+	}
+
+	
+	public void setIndex(int index)
+	{
+	
+		this.index = index;
+	}
+
 	private Spinner categorySpinner, currencySpinner;
 	private Button addSingleButton;
 	
-
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
 	{
 
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_add_expense);
-	
+		setContentView(R.layout.add_direct_expense_activity);
+		
+		Bundle bundle = getIntent().getExtras();
+		int index = bundle.getInt("index");
+		this.setIndex(index);
 	}
 	
 	public void addItemsOnSpinner() {
@@ -77,7 +93,7 @@ public class AddExpenseActivity extends Activity implements Serializable
 		addSingleButton.setOnClickListener(new OnClickListener() {
 	 
 		 public void onClick(View v) {
-			 Toast.makeText(AddExpenseActivity.this,
+			 Toast.makeText(AddDirectExpense.this,
 					 "OnClickListener : " + "\nSpinner 1 : "
 					 + String.valueOf(currencySpinner.getSelectedItem()),Toast.LENGTH_SHORT).show();
 		  }
@@ -88,7 +104,7 @@ public class AddExpenseActivity extends Activity implements Serializable
 		addSingleButton.setOnClickListener(new OnClickListener() {
 	 
 		 public void onClick(View v) {
-			 Toast.makeText(AddExpenseActivity.this,
+			 Toast.makeText(AddDirectExpense.this,
 					 "OnClickListener : " + "\nSpinner 1 : "
 					 + String.valueOf(categorySpinner.getSelectedItem()),Toast.LENGTH_SHORT).show();
 		  }
@@ -101,23 +117,13 @@ public class AddExpenseActivity extends Activity implements Serializable
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu)
 	{
+
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.add_expense, menu);
+		getMenuInflater().inflate(R.menu.add_direct_expense, menu);
 		return true;
 	}
 	
-	public void addOneExpense(View v){
-		
-		//Intent intent_prev = getIntent();
-		//Claim claim = (Claim) intent_prev.getSerializableExtra("claim");
-		
-		//each of these correspond to the text input in each field
-		
-		Bundle bundle = getIntent().getExtras();
-		String name = bundle.getString("name");
-		String description = bundle.getString("desc");
-		String date_from = bundle.getString("DF");
-		String date_to = bundle.getString("DT");
+	public void finishAction(View v) {
 		
 		EditText itemTextView = (EditText)findViewById(R.id.itemEditText);
 		EditText descTextView = (EditText)findViewById(R.id.descrText);
@@ -132,23 +138,31 @@ public class AddExpenseActivity extends Activity implements Serializable
 		String currency = currencySpinner.getSelectedItem().toString();
 		Float amt = Float.valueOf(amountTextView.getText().toString());
 		
-		
 		if (!item.equals("") && !desc.equals("")) {	
-			ClaimController ct = new ClaimController();
-			Claim claim = new Claim(name, date_from, date_to, description);
+			
+			Collection<Claim> c = ClaimController.getClaimList().getClaims();
+			 
+			ArrayList<Claim> list = new ArrayList<Claim>(c);
+			
+			Claim claim = list.get(this.getIndex());
 			
 			Expense_Item e = new Expense_Item(item, category, desc, amt, currency);
 			
 			claim.addExpense_Item(e);
-			
-			ct.addIt(claim);
 		
-			Intent intent = new Intent(AddExpenseActivity.this, MainActivity.class);
+			Intent intent = new Intent(AddDirectExpense.this, ExpenseItems.class);
+			
+			Bundle bundle = new Bundle();
+	    	bundle.putInt("index", this.getIndex()); 
+	    	intent.putExtras(bundle);
+	    	
 			startActivity(intent);
 			
 		} else {
 			Toast.makeText(this,"Please fill out all fields", Toast.LENGTH_SHORT).show();
 		}
+		
+		//Toast.makeText(this,"test", Toast.LENGTH_SHORT).show();
 	}
 
 }

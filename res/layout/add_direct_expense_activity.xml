@@ -1,0 +1,160 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".AddExpenseActivity" >
+
+    <TextView
+        android:id="@+id/addEItextview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:text="Add Expense Item"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="34dp" />
+
+    <TextView
+        android:id="@+id/itemTextView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignRight="@+id/categoryTextView"
+        android:layout_below="@+id/addEItextview"
+        android:layout_marginTop="22dp"
+        android:text="Item:"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/dateTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/itemTextView1"
+        android:layout_alignRight="@+id/itemTextView1"
+        android:layout_below="@+id/itemTextView1"
+        android:layout_marginTop="19dp"
+        android:text="Date:"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/categoryTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/descriptionTextView"
+        android:layout_alignRight="@+id/descriptionTextView"
+        android:layout_below="@+id/dateTextView"
+        android:layout_marginTop="19dp"
+        android:text="Category:"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <EditText
+        android:id="@+id/itemEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/itemTextView1"
+        android:layout_toRightOf="@+id/itemTextView1"
+        android:ems="10" >
+
+        <requestFocus />
+    </EditText>
+
+    <EditText
+        android:id="@+id/dateEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/itemEditText"
+        android:layout_alignRight="@+id/itemEditText"
+        android:layout_alignTop="@+id/dateTextView"
+        android:ems="10"
+        android:inputType="date" />
+
+    <Spinner
+        android:id="@+id/categorySpinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/categoryTextView"
+        android:layout_alignLeft="@+id/dateEditText"
+        android:layout_alignRight="@+id/dateEditText"
+        android:layout_below="@+id/dateEditText"
+        android:entries="@array/category_arrays"
+        android:prompt="@string/category_prompt" />
+
+    <EditText
+        android:id="@+id/descrText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/descriptionTextView"
+        android:layout_alignBottom="@+id/descriptionTextView"
+        android:layout_alignParentRight="true"
+        android:layout_toRightOf="@+id/descriptionTextView"
+        android:ems="10"
+        android:inputType="textMultiLine" />
+
+    <TextView
+        android:id="@+id/descriptionTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:text="Description:"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <EditText
+        android:id="@+id/amountText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/AmountTextView"
+        android:layout_toRightOf="@+id/descriptionTextView"
+        android:ems="10"
+        android:inputType="numberSigned" />
+
+    <Spinner
+        android:id="@+id/currencySpinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/currencyTextView"
+        android:layout_alignRight="@+id/descrText"
+        android:layout_below="@+id/amountText"
+        android:layout_toRightOf="@+id/AmountTextView"
+        android:entries="@array/currency_arrays"
+        android:prompt="@string/currency_prompt" />
+
+    <TextView
+        android:id="@+id/AmountTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/currencyTextView"
+        android:layout_alignRight="@+id/descriptionTextView"
+        android:layout_below="@+id/descrText"
+        android:layout_marginTop="29dp"
+        android:text="Amount:"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/currencyTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignRight="@+id/descriptionTextView"
+        android:layout_below="@+id/amountText"
+        android:layout_marginTop="14dp"
+        android:text="Currency:"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <Button
+        android:id="@+id/finishButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/currencyTextView"
+        android:layout_alignRight="@+id/currencySpinner"
+        android:layout_below="@+id/currencySpinner"
+        android:layout_marginTop="28dp"
+        android:onClick="finishAction"
+        android:text="Finish" />
+
+</RelativeLayout>

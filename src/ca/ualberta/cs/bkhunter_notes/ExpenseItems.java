@@ -69,9 +69,6 @@ public class ExpenseItems extends Activity implements Serializable{
 		Claim claim = list.get(index);
 		
 		final ArrayList<Expense_Item> list2 = claim.getExpenseItems();
-		 
-		int s = list2.size();
-	    this.setIndex(s);
 		
 		final ListView  listView = (ListView)findViewById(R.id.expenseItemsListView);
 				
@@ -111,10 +108,20 @@ public class ExpenseItems extends Activity implements Serializable{
 		return true;
 	}
 	
-	public void testToast(View v) {
-		int i = getIndex();
-		String b = Integer.toString(i);
-		Toast.makeText(this,b, Toast.LENGTH_SHORT).show();
+	public void addDirExpense(View v) {
+		Intent intent = new Intent(ExpenseItems.this, AddDirectExpense.class);
+		Bundle bundle = new Bundle();
+    	bundle.putInt("index", this.getIndex()); 
+    	intent.putExtras(bundle); 
+		startActivity(intent);
+	}
+	
+	public void backAction(View v) {
+		Intent intent = new Intent(ExpenseItems.this, ViewClaim.class);
+		Bundle bundle = new Bundle();
+    	bundle.putInt("index", this.getIndex()); 
+    	intent.putExtras(bundle); 
+		startActivity(intent);
 	}
 
 }

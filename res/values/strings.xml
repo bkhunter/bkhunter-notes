@@ -9,13 +9,12 @@
     <string name="title_activity_expense_items">ExpenseItems</string>
     <string name="title_activity_add_expense">AddExpenseActivity</string>
     <string name="category_prompt">Choose a category</string>
-    
+
     <string-array name="status_array">
         <item>In Progress</item>
         <item>Submitted</item>
         <item></item>
     </string-array>
-
     <string-array name="category_arrays">
         <item>Air Fare</item>
         <item>Ground Transport</item>
@@ -39,5 +38,6 @@
 
     <string name="title_activity_view_claim">ViewClaimActivity</string>
     <string name="title_activity_edit_claim_activiy">Edit Claim</string>
+    <string name="title_activity_add_direct_expense">Add Expense</string>
 
 </resources>
