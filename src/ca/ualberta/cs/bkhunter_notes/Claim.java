@@ -3,27 +3,62 @@ package ca.ualberta.cs.bkhunter_notes;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Date;
 
-public class Claim implements Serializable{
+public class Claim implements Serializable, Comparable<Claim> {
 	
 	
 	public String name;
-	public String dateFrom;
-	public String dateTo;
+	public Date dateFrom;
+	public Date dateTo;
 	public String description;
 	public ArrayList<Expense_Item> eItems;
 	public String status = "In Progress";
+	public String dateFGiven;
+	public String dateTGiven;
 	
-	public Claim(String n, String dF, String dT, String description) {
+	public Claim(String n, String dateFGiven, Date dF, Date dT, String description, String dateTGiven) {
+		
 		this.name = n;
 		this.dateFrom = dF;
 		this.dateTo = dT;
 		this.description = description;
+		this.dateFGiven = dateFGiven;
+		this.dateTGiven = dateTGiven;
+		
 		
 		this.eItems = new ArrayList<Expense_Item>();
 		
 	}
 	
+	
+	public String getDateFGiven()
+	{
+	
+		return dateFGiven;
+	}
+
+	
+	public void setDateFGiven(String dateFGiven)
+	{
+	
+		this.dateFGiven = dateFGiven;
+	}
+
+	
+	public String getDateTGiven()
+	{
+	
+		return dateTGiven;
+	}
+
+	
+	public void setDateTGiven(String dateTGiven)
+	{
+	
+		this.dateTGiven = dateTGiven;
+	}
+
 	public void addExpense_Item(Expense_Item e) {
 		this.eItems.add(e);	
 	}
@@ -41,30 +76,29 @@ public class Claim implements Serializable{
 	}
 
 	
-	public String getDateFrom(){
+	public Date getDateFrom(){
 	
 		return dateFrom;
 	}
 
 	
-	public void setDateFrom(String dateFrom){
+	public void setDateFrom(Date dateFrom){
 		
 		this.dateFrom = dateFrom;
 	}
 
 	
-	public String getDateTo(){
+	public Date getDateTo(){
 	
 		return dateTo;
 	}
 
 	
-	public void setDateTo(String dateTo){
+	public void setDateTo(Date dateTo){
 	
 		this.dateTo = dateTo;
 	}
 
-	
 	public String getDescription(){
 	
 		return description;
@@ -77,8 +111,29 @@ public class Claim implements Serializable{
 	}
 	
 	public String toString() {
-		return (getName() + "    " + getDateFrom());
+		return (getName() + "    @" + getDateFGiven());
 	}
+	
+	public String toEmailString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append(this.getName())
+			.append("\n")
+			.append(this.getDateFGiven())
+			.append(" To ")
+			.append(this.getDateTGiven())
+			.append("\n")
+			.append(this.getDescription())
+			.append("\n")
+			.append(this.getStatus())
+			.append("\n");
+	for (Expense_Item item : this.getExpenseItems()) {
+		builder.append(item.toEmailString());
+		
+	}
+	
+	return builder.toString();
+	}
+			
 
 	public String getStatus() {
 		return status;
@@ -86,6 +141,18 @@ public class Claim implements Serializable{
 	
 	public void setStatus(String s) {
 		this.status = s;
+	}
+	
+	public int compareTo(Claim other) {
+		
+	      if (other.getDateFrom() == null) {
+	    	  //Log.i("LOL", "uh oh it's null")
+		        return 0;
+	      }
+	      
+	      return this.getDateFrom().compareTo(other.getDateFrom());
+		
+		
 	}
 	
 }

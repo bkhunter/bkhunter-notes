@@ -39,5 +39,7 @@
     <string name="title_activity_view_claim">ViewClaimActivity</string>
     <string name="title_activity_edit_claim_activiy">Edit Claim</string>
     <string name="title_activity_add_direct_expense">Add Expense</string>
+    <string name="title_activity_change_status">Change Status</string>
+    <string name="title_activity_edit_expense">Edit Expense</string>
 
 </resources>

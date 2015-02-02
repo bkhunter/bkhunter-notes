@@ -1,8 +1,11 @@
 package ca.ualberta.cs.bkhunter_notes;
 
 import java.io.Serializable;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Date;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -51,18 +54,31 @@ public class AddClaimActivity extends Activity {
 		String date_from = dateFromTextView.getText().toString();
 		String date_to = dateToTextView.getText().toString();
 		
-		if (!name.equals("") && !date_to.equals("") && !date_from.equals("")) {
-			Claim claim = new Claim(name, date_from, date_to, description);
-			ct.addIt(claim);
+		//http://stackoverflow.com/questions/12455905/how-to-convert-string-to-date-in-android on 02/01/2015
+		SimpleDateFormat makeFormat = new SimpleDateFormat("yyyy-MM-dd");
+		//String datenow="20120917121823";
+		
+		Date date2 = null;
+		Date date3 = null;;
+		
+		try
+		{
+			date3 = (Date) makeFormat.parse(date_to);
+			date2 = (Date) makeFormat.parse(date_from);
 			
-			//Expense_Item e = new Expense_Item("Test", "test", "description", (float) 5.0, "currency");
-			//claim.addExpense_Item(e);
+			Claim claim = new Claim(name, date_from,date2,date3,description, date_to);
+			ct.addIt(claim);
 			
 			Intent intent = new Intent(AddClaimActivity.this, MainActivity.class);
 			startActivity(intent);
-		} else {
-			Toast.makeText(this,"Please fill out all fields", Toast.LENGTH_SHORT).show();
+		} catch (ParseException e)
+		{
+			// TODO Auto-generated catch block
+			//e.printStackTrace();
+			Toast.makeText(this, "Pleae enter date in specified format", Toast.LENGTH_LONG).show();
+			
 		}
+		
 		
 	}
 	

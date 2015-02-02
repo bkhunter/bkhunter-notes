@@ -7,7 +7,7 @@ import java.util.Calendar;
 public class Expense_Item implements Serializable
 {
 	public String item;
-	//public Calendar date;
+	public String date;
 	public String category;
 	public String description;
 	public Float amount;
@@ -40,20 +40,6 @@ public class Expense_Item implements Serializable
 	
 		this.item = item;
 	}
-
-	
-//	public Calendar getDate()
-//	{
-//	
-//		return date;
-//	}
-
-//	
-//	public void setDate(Calendar date)
-//	{
-//	
-//		this.date = date;
-//	}
 
 	
 	public String getCategory()
@@ -115,5 +101,20 @@ public class Expense_Item implements Serializable
 		return getItem();
 	}
 	
+	public String toEmailString() {
+	
+		StringBuilder builder = new StringBuilder();
+		builder.append(this.getItem())
+			.append("\n")
+			.append(this.getAmount().toString())
+			.append(" in ")
+			.append(this.getCurrency())
+			.append("\n")
+			.append(this.getDescription())
+			.append("\n");
+		
+		return builder.toString();
+	}
+
 
 }

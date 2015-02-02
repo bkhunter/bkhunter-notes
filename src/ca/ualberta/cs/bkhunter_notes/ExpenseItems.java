@@ -76,27 +76,19 @@ public class ExpenseItems extends Activity implements Serializable{
 		
 		listView.setAdapter(adapter);
 		
-//		
-//		Collection<Expense_Item> eitems = claim.getExpenseItems();
-//		
-//		ArrayList<Expense_Item> list = new ArrayList<Expense_Item>(eitems);
-//		
-//		ArrayAdapter<Expense_Item> eAdapter = new ArrayAdapter<Expense_Item>(this, android.R.layout.activity_list_item, list);
-//		
-//		listView.setAdapter(eAdapter);
+		listView.setOnItemClickListener(new OnItemClickListener() {    
+			
+		    @Override
+		    public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+		    	
+			    	Intent intent = new Intent(ExpenseItems.this, EditExpenseActivity.class);
+			    	Bundle bundle = new Bundle();
+			    	bundle.putInt("index", position); 
+			    	intent.putExtras(bundle); 
+					startActivity(intent);
+		    }
 		
-//		listView.setOnItemClickListener(new OnItemClickListener() {    
-//		    @Override
-//		    public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-//		    	
-//	//		    	Intent intent = new Intent(ExpenseItems.this, ViewClaim.class);
-//	//		    	Bundle bundle = new Bundle();
-//	//		    	bundle.putInt("index", position); 
-//	//		    	intent.putExtras(bundle); 
-//	//				startActivity(intent);
-//		    	
-//			    	Toast.makeText(this,"Please fill out all fields", Toast.LENGTH_SHORT).show();	    }
-//		});
+		});
 	}
 
 	@Override

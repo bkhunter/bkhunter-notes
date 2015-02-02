@@ -42,8 +42,8 @@ public class ViewClaim extends Activity {
 		ArrayList<Claim> list = new ArrayList<Claim>(c);
 		
 		String name = list.get(index).getName();
-		String dateFrom = list.get(index).getDateFrom();
-		String dateTo = list.get(index).getDateTo();
+		String dateFrom = list.get(index).getDateFGiven();
+		String dateTo = list.get(index).getDateTGiven();
 		String description = list.get(index).getDescription();
 		String status = list.get(index).getStatus();
 		
@@ -93,27 +93,40 @@ public class ViewClaim extends Activity {
 	}
 	
 	public void goBack(View v) throws ParseException {
+		Intent intent = new Intent(ViewClaim.this, MainActivity.class);
+		startActivity(intent);
+				
+	}
+	
+	public void ChangeStatus(View v) {
+		Intent intent = new Intent(ViewClaim.this, ChangeStatus.class);
+		int position = this.getIndex();
+		Bundle bundle = new Bundle();
+    	bundle.putInt("index", position); 
+    	intent.putExtras(bundle); 
+		startActivity(intent);
+		
+	}
+	//fixEdd
+	//https://stackoverflow.com/questions/2197741/how-can-i-send-emails-from-my-android-application
+	public void EmailAction(View v) {
 		
 		Collection<Claim> c = ClaimController.getClaimList().getClaims();
 		ArrayList<Claim> list = new ArrayList<Claim>(c);
-		//Intent intent = new Intent(ViewClaim.this, MainActivity.class);
-		//startActivity(intent);
 		
-		Claim claim = list.get(this.getIndex());
+		int index = this.getIndex();
+		Claim claim = list.get(index);
 		
-		String dateFrom = claim.getDateFrom();
+		Intent i = new Intent(Intent.ACTION_SEND);
+		i.setType("message/rfc822");
+		i.putExtra(Intent.EXTRA_SUBJECT, "Claim");
+		i.putExtra(Intent.EXTRA_TEXT, claim.toEmailString());
 		
-		//http://stackoverflow.com/questions/12455905/how-to-convert-string-to-date-in-android on 02/01/2015
-		SimpleDateFormat makeFormat = new SimpleDateFormat("yyyyMMdd");
-		//String datenow="20120917121823";		
-		Date date2 = (Date) makeFormat.parse(dateFrom);
-		Date date3 = (Date) makeFormat.parse(claim.dateTo);
-		
-		
-			
-		
-		Toast.makeText(this, Integer.toString(date2.compareTo(date3)), Toast.LENGTH_SHORT).show();
-		
+		try {
+		    startActivity(Intent.createChooser(i, "Send mail..."));
+		} catch (android.content.ActivityNotFoundException ex) {
+		    Toast.makeText(ViewClaim.this, "There are no email clients installed.", Toast.LENGTH_SHORT).show();
+		}
 	}
 
 }

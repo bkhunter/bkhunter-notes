@@ -2,6 +2,9 @@ package ca.ualberta.cs.bkhunter_notes;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 
 import android.os.Bundle;
 import android.app.Activity;
@@ -36,6 +39,9 @@ public class MainActivity extends Activity
 		Collection<Claim> claim = ClaimController.getClaimList().getClaims();
 		
 		final ArrayList<Claim> list = new ArrayList<Claim>(claim);
+		
+		Collections.sort(list);
+		
 		
 		final ArrayAdapter<Claim> claimAdapter = new ArrayAdapter<Claim>(this, android.R.layout.simple_list_item_1, list);
 		

@@ -1,7 +1,10 @@
 package ca.ualberta.cs.bkhunter_notes;
 
 import java.io.Serializable;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import android.os.Bundle;
@@ -106,7 +109,7 @@ public class AddExpenseActivity extends Activity implements Serializable
 		return true;
 	}
 	
-	public void addOneExpense(View v){
+	public void addOneExpense(View v) throws ParseException{
 		
 		//Intent intent_prev = getIntent();
 		//Claim claim = (Claim) intent_prev.getSerializableExtra("claim");
@@ -132,10 +135,15 @@ public class AddExpenseActivity extends Activity implements Serializable
 		String currency = currencySpinner.getSelectedItem().toString();
 		Float amt = Float.valueOf(amountTextView.getText().toString());
 		
+		SimpleDateFormat makeFormat = new SimpleDateFormat("yyyy-MM-dd");
+		//String datenow="20120917121823";		
+		Date date2 = (Date) makeFormat.parse(date_from);
+		Date date3 = (Date) makeFormat.parse(date_to);
+		
 		
 		if (!item.equals("") && !desc.equals("")) {	
 			ClaimController ct = new ClaimController();
-			Claim claim = new Claim(name, date_from, date_to, description);
+			Claim claim = new Claim(name, date_from, date2, date3, description, date_to);
 			
 			Expense_Item e = new Expense_Item(item, category, desc, amt, currency);
 			

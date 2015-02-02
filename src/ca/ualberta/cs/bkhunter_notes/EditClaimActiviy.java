@@ -1,7 +1,10 @@
 package ca.ualberta.cs.bkhunter_notes;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Date;
 
 import android.os.Bundle;
 import android.app.Activity;
@@ -44,8 +47,8 @@ public class EditClaimActiviy extends Activity
 		
 		String name = list.get(index).getName();
 		String description = list.get(index).getDescription();
-		String DateFrom = list.get(index).getDateFrom();
-		String DateTo = list.get(index).getDateTo();
+		String DateFrom = list.get(index).getDateFGiven();
+		String DateTo = list.get(index).getDateTGiven();
 		
 		EditText descriptionEditText = (EditText) findViewById(R.id.descrText);
 		EditText nameEditText = (EditText) findViewById(R.id.claimText);
@@ -69,7 +72,7 @@ public class EditClaimActiviy extends Activity
 		return true;
 	}
 	
-	public void updateAction(View v) {
+	public void updateAction(View v) throws ParseException {
 		
 		int pos = this.getIndex();
 		
@@ -83,11 +86,21 @@ public class EditClaimActiviy extends Activity
 		EditText dfEditText = (EditText) findViewById(R.id.DFText);
 		EditText dtEditText = (EditText) findViewById(R.id.DTtext);
 		
+		String date_from = dfEditText.getText().toString();
+		String date_to = dtEditText.getText().toString();
+		
 		claim.setName(nameEditText.getText().toString());
 		claim.setDescription(descriptionEditText.getText().toString());
-		claim.setDateFrom(dfEditText.getText().toString());
-    	claim.setDateTo(dtEditText.getText().toString());
-
+		claim.setDateFGiven(date_from);
+    	claim.setDateTGiven(date_to);
+    	
+		SimpleDateFormat makeFormat = new SimpleDateFormat("yyyy-MM-dd");	
+		Date date2 = (Date) makeFormat.parse(date_from);
+		Date date3 = (Date) makeFormat.parse(date_to);
+		
+		claim.setDateFrom(date2);
+		claim.setDateTo(date3);
+		
 		Intent intent = new Intent(EditClaimActiviy.this, ViewClaim.class); 
 		
 		Bundle bundle = new Bundle();

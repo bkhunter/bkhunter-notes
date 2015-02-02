@@ -1,0 +1,66 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".ChangeStatus" >
+
+    <Button
+        android:id="@+id/returnedButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/ApprovedButton"
+        android:layout_marginTop="22dp"
+        android:onClick="ReturnedAction"
+        android:text="Returned" />
+
+    <Button
+        android:id="@+id/ApprovedButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/submittedButton"
+        android:layout_marginTop="23dp"
+        android:onClick="ApprovedAction"
+        android:text="Approved" />
+
+    <Button
+        android:id="@+id/submittedButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/InProgButton"
+        android:layout_marginTop="22dp"
+        android:onClick="SubmittedAction"
+        android:text="Submitted" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/InProgButton"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="43dp"
+        android:text="Denote Claim Status:"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="28dp" />
+
+    <Button
+        android:id="@+id/InProgButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/submittedButton"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/textView1"
+        android:layout_marginTop="20dp"
+        android:onClick="InProgAction"
+        android:text="In Progress" />
+
+</RelativeLayout>

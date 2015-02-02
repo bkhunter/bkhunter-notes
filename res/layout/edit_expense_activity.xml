@@ -1,8 +1,11 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:onClick="EmailAction" >
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scrollView1"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent" >
+    
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
 
     <TextView
         android:id="@+id/descrTextView"
@@ -95,7 +98,6 @@
         android:layout_above="@+id/homeButton"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
-        android:onClick="EmailAction"
         android:text="Email Claim" />
 
     <Button
@@ -129,3 +131,5 @@
         android:text="Change" />
 
 </RelativeLayout>
+
+</ScrollView>

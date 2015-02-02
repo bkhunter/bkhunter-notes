@@ -50,6 +50,14 @@
             android:name="ca.ualberta.cs.bkhunter_notes.AddDirectExpense"
             android:label="@string/title_activity_add_direct_expense" >
         </activity>
+        <activity
+            android:name="ca.ualberta.cs.bkhunter_notes.ChangeStatus"
+            android:label="@string/title_activity_change_status" >
+        </activity>
+        <activity
+            android:name="ca.ualberta.cs.bkhunter_notes.EditExpenseActivity"
+            android:label="@string/title_activity_edit_expense" >
+        </activity>
     </application>
 
 </manifest>
