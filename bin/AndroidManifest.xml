@@ -58,6 +58,10 @@
             android:name="ca.ualberta.cs.bkhunter_notes.EditExpenseActivity"
             android:label="@string/title_activity_edit_expense" >
         </activity>
+        <activity
+            android:name="ca.ualberta.cs.bkhunter_notes.ViewExpenseItemActivity"
+            android:label="@string/title_activity_view_expense_item" >
+        </activity>
     </application>
 
 </manifest>

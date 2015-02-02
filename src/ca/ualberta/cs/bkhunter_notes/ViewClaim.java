@@ -32,6 +32,7 @@ public class ViewClaim extends Activity {
 
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.view_claim_activity);
+		ClaimListManager.initManager(this.getApplicationContext());
 		
 		Bundle bundle = getIntent().getExtras();
 		int index = bundle.getInt("index");

@@ -33,6 +33,7 @@ public class MainActivity extends Activity
 
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		ClaimListManager.initManager(this.getApplicationContext());
 		
 		ListView  listView = (ListView)findViewById(R.id.claimListView);
 		
@@ -76,7 +77,7 @@ public class MainActivity extends Activity
 		    	adb.setMessage(list.get(position).getName() + " Selected");
 		    	adb.setCancelable(true);
 		    	
-		    	adb.setNeutralButton("Edit", new OnClickListener() {
+		    	adb.setNeutralButton("View", new OnClickListener() {
 		    		
 		    		public void onClick(DialogInterface dialog, int which)
 					{

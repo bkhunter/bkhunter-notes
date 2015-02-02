@@ -1,14 +1,21 @@
 package ca.ualberta.cs.bkhunter_notes;
 
+import java.io.IOException;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 
 
-public class ClaimList {
+public class ClaimList implements Serializable {
 	
 	
-	protected ArrayList<Claim> claimList;
-	protected ArrayList<Listener> listeners;
+	/**
+	 * claimList serialization ID
+	 */
+	private static final long serialVersionUID = -5279760708764549823L;
+	
+	protected ArrayList<Claim> claimList = null;
+	protected transient ArrayList<Listener> listeners = null;
 	
 	public ClaimList() {
 		
@@ -16,7 +23,12 @@ public class ClaimList {
 		this.listeners = new ArrayList<Listener>();
 		
 	}
-	
+	private ArrayList<Listener> getListeners() {
+		if (listeners == null) {
+			listeners = new ArrayList<Listener>();
+		}
+		return listeners;
+	}
 	public Collection<Claim> getClaims() {
 		
 		return this.claimList;
@@ -44,7 +56,7 @@ public class ClaimList {
 	
 	public void notifyListeners() {
 		
-		for (Listener listener : listeners)
+		for (Listener listener : getListeners())
 		{
 			listener.update();
 		}
@@ -54,11 +66,11 @@ public class ClaimList {
 	
 	public void addListener(Listener L) {
 		
-		this.listeners.add(L);
+		this.getListeners().add(L);
 	}
 	
 	public void removeListener(Listener L) {
-		this.listeners.remove(L);
+		this.getListeners().remove(L);
 	}
 	
 }

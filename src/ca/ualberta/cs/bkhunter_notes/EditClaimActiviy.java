@@ -12,6 +12,7 @@ import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class EditClaimActiviy extends Activity
 {
@@ -36,6 +37,7 @@ public class EditClaimActiviy extends Activity
 
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.edit_claim_activity);
+		ClaimListManager.initManager(this.getApplicationContext());
 		
 		Bundle bundle = getIntent().getExtras();
 		int pos = bundle.getInt("index");
@@ -72,7 +74,7 @@ public class EditClaimActiviy extends Activity
 		return true;
 	}
 	
-	public void updateAction(View v) throws ParseException {
+	public void updateAction(View v){
 		
 		int pos = this.getIndex();
 		
@@ -94,20 +96,36 @@ public class EditClaimActiviy extends Activity
 		claim.setDateFGiven(date_from);
     	claim.setDateTGiven(date_to);
     	
-		SimpleDateFormat makeFormat = new SimpleDateFormat("yyyy-MM-dd");	
-		Date date2 = (Date) makeFormat.parse(date_from);
-		Date date3 = (Date) makeFormat.parse(date_to);
+		SimpleDateFormat makeFormat = new SimpleDateFormat("yyyy-MM-dd");
 		
-		claim.setDateFrom(date2);
-		claim.setDateTo(date3);
+		Date date2 = null;
+		Date date3 = null;;
 		
-		Intent intent = new Intent(EditClaimActiviy.this, ViewClaim.class); 
+		try
+		{
+			date3 = (Date) makeFormat.parse(date_to);
+			date2 = (Date) makeFormat.parse(date_from);
+			
+			claim.setDateFrom(date2);
+			claim.setDateTo(date3);
+			
+			Intent intent = new Intent(EditClaimActiviy.this, ViewClaim.class); 
+			
+			Bundle bundle = new Bundle();
+	    	bundle.putInt("index", pos); 
+	    	intent.putExtras(bundle); 
+	   
+			startActivity(intent);
+			
+		} catch (ParseException e)
+		{
+			// TODO Auto-generated catch block
+			//e.printStackTrace();
+			Toast.makeText(this, "Pleae enter date in specified format", Toast.LENGTH_LONG).show();
+			
+		}
 		
-		Bundle bundle = new Bundle();
-    	bundle.putInt("index", pos); 
-    	intent.putExtras(bundle); 
-   
-		startActivity(intent);
+		
 		
 	}
 

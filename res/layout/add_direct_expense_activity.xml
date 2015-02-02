@@ -31,15 +31,16 @@
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
-        android:id="@+id/dateTextView"
+        android:id="@+id/expenseDateView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/itemTextView1"
         android:layout_alignRight="@+id/itemTextView1"
         android:layout_below="@+id/itemTextView1"
         android:layout_marginTop="19dp"
-        android:text="Date:"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:text="Date \n(yyyy-mm-dd)"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="18dp" />
 
     <TextView
         android:id="@+id/categoryTextView"
@@ -47,7 +48,7 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/descriptionTextView"
         android:layout_alignRight="@+id/descriptionTextView"
-        android:layout_below="@+id/dateTextView"
+        android:layout_below="@+id/expenseDateView"
         android:layout_marginTop="19dp"
         android:text="Category:"
         android:textAppearance="?android:attr/textAppearanceLarge" />
@@ -70,7 +71,7 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/itemEditText"
         android:layout_alignRight="@+id/itemEditText"
-        android:layout_alignTop="@+id/dateTextView"
+        android:layout_alignTop="@+id/expenseDateView"
         android:ems="10"
         android:inputType="date" />
 
@@ -105,7 +106,7 @@
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <EditText
-        android:id="@+id/amountText"
+        android:id="@+id/amountView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/AmountTextView"
@@ -119,7 +120,7 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/currencyTextView"
         android:layout_alignRight="@+id/descrText"
-        android:layout_below="@+id/amountText"
+        android:layout_below="@+id/amountView"
         android:layout_toRightOf="@+id/AmountTextView"
         android:entries="@array/currency_arrays"
         android:prompt="@string/currency_prompt" />
@@ -141,7 +142,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignRight="@+id/descriptionTextView"
-        android:layout_below="@+id/amountText"
+        android:layout_below="@+id/amountView"
         android:layout_marginTop="14dp"
         android:text="Currency:"
         android:textAppearance="?android:attr/textAppearanceLarge" />

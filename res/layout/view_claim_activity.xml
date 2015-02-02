@@ -11,7 +11,7 @@
         android:layout_above="@+id/editClaimButton"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
-        android:layout_below="@+id/textView2"
+        android:layout_below="@+id/occursText"
         android:text="Description" />
 
     <TextView
@@ -32,7 +32,7 @@
         android:layout_alignBaseline="@+id/dateFromDisplayTextView"
         android:layout_alignBottom="@+id/dateFromDisplayTextView"
         android:layout_alignParentRight="true"
-        android:layout_toRightOf="@+id/textView1"
+        android:layout_toRightOf="@+id/titleTextView"
         android:text="Date to"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
@@ -42,13 +42,13 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/selectedClaimTextView"
         android:layout_toLeftOf="@+id/statusButton"
-        android:layout_toRightOf="@+id/textView2"
+        android:layout_toRightOf="@+id/occursText"
         android:text="Status"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textSize="16dp" />
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/titleTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/dateToTextView"
@@ -58,7 +58,7 @@
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/occursText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"

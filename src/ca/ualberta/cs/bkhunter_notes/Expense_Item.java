@@ -10,16 +10,16 @@ public class Expense_Item implements Serializable
 	public String date;
 	public String category;
 	public String description;
-	public Float amount;
+	public int amount;
 	public String currency;
 	
-	public Expense_Item(String item,/* Calendar date*/ String category,
-			String description, Float amount, String currency)
+	public Expense_Item(String item, String date, String category,
+			String description, int amount, String currency)
 	{
 
 		super();
 		this.item = item;
-		//this.date = date;
+		this.date = date;
 		this.category = category;
 		this.description = description;
 		this.amount = amount;
@@ -28,6 +28,16 @@ public class Expense_Item implements Serializable
 	}
 
 	
+	public String getDate() {
+		return date;
+	}
+
+
+	public void setDate(String date) {
+		this.date = date;
+	}
+
+
 	public String getItem()
 	{
 	
@@ -70,14 +80,14 @@ public class Expense_Item implements Serializable
 	}
 
 	
-	public Float getAmount()
+	public int getAmount()
 	{
 	
 		return amount;
 	}
 
 	
-	public void setAmount(Float amount)
+	public void setAmount(int amount)
 	{
 	
 		this.amount = amount;
@@ -106,7 +116,7 @@ public class Expense_Item implements Serializable
 		StringBuilder builder = new StringBuilder();
 		builder.append(this.getItem())
 			.append("\n")
-			.append(this.getAmount().toString())
+			.append(this.toString())
 			.append(" in ")
 			.append(this.getCurrency())
 			.append("\n")

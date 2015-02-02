@@ -42,7 +42,7 @@
         android:text="Submitted" />
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/titleTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/InProgButton"
@@ -58,7 +58,7 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/submittedButton"
         android:layout_alignParentRight="true"
-        android:layout_below="@+id/textView1"
+        android:layout_below="@+id/titleTextView"
         android:layout_marginTop="20dp"
         android:onClick="InProgAction"
         android:text="In Progress" />

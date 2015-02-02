@@ -13,6 +13,7 @@ public class EditExpenseActivity extends Activity
 
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.edit_expense_activity);
+		ClaimListManager.initManager(this.getApplicationContext());
 	}
 
 	@Override

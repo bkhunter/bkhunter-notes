@@ -34,6 +34,7 @@ public class ChangeStatus extends Activity
 
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.change_status_activity);
+		ClaimListManager.initManager(this.getApplicationContext());
 		
 		Bundle bundle = getIntent().getExtras();
 		int index = bundle.getInt("index");

@@ -31,15 +31,16 @@
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
-        android:id="@+id/dateTextView"
+        android:id="@+id/expenseDateView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/itemTextView1"
         android:layout_alignRight="@+id/itemTextView1"
         android:layout_below="@+id/itemTextView1"
         android:layout_marginTop="19dp"
-        android:text="Date:"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:text="Date \n(yyyy-mm-dd)"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="18sp" />
 
     <TextView
         android:id="@+id/categoryTextView"
@@ -47,7 +48,7 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/descriptionTextView"
         android:layout_alignRight="@+id/descriptionTextView"
-        android:layout_below="@+id/dateTextView"
+        android:layout_below="@+id/expenseDateView"
         android:layout_marginTop="19dp"
         android:text="Category:"
         android:textAppearance="?android:attr/textAppearanceLarge" />
@@ -80,7 +81,7 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/itemEditText"
         android:layout_alignRight="@+id/itemEditText"
-        android:layout_alignTop="@+id/dateTextView"
+        android:layout_alignTop="@+id/expenseDateView"
         android:ems="10"
         android:inputType="date" />
 
@@ -117,25 +118,6 @@
         android:text="Currency:"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
-    <EditText
-        android:id="@+id/descrText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/descriptionTextView"
-        android:layout_alignBottom="@+id/descriptionTextView"
-        android:layout_toRightOf="@+id/addSingleButton"
-        android:ems="10"
-        android:inputType="textMultiLine" />
-
-    <TextView
-        android:id="@+id/descriptionTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/addSingleButton"
-        android:layout_centerVertical="true"
-        android:text="Description:"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
     <TextView
         android:id="@+id/AmountTextView"
         android:layout_width="wrap_content"
@@ -147,13 +129,33 @@
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <EditText
-        android:id="@+id/amountText"
+        android:id="@+id/amountView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/currencySpinner"
         android:layout_alignTop="@+id/AmountTextView"
         android:ems="10"
         android:inputType="numberSigned" />
+
+    <EditText
+        android:id="@+id/descrText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/amountView"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/descriptionTextView"
+        android:layout_toRightOf="@+id/descriptionTextView"
+        android:ems="10"
+        android:inputType="textMultiLine" />
+
+    <TextView
+        android:id="@+id/descriptionTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/addSingleButton"
+        android:layout_below="@+id/categoryTextView"
+        android:text="Description:"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
 </RelativeLayout>
 

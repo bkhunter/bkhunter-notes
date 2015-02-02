@@ -29,6 +29,7 @@ public class AddClaimActivity extends Activity {
 
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.add_claims);
+		ClaimListManager.initManager(this.getApplicationContext());
 	}
 
 	@Override
@@ -96,12 +97,17 @@ public class AddClaimActivity extends Activity {
 		String description = descriptionTextView.getText().toString();
 		String date_from = dateFromTextView.getText().toString();
 		String date_to = dateToTextView.getText().toString();
+		SimpleDateFormat makeFormat = new SimpleDateFormat("yyyy-MM-dd");
 		
-		if (!name.equals("") && !date_to.equals("") && !date_from.equals("")) {
-			//Claim claim = new Claim(name, date_from, date_to, description);
-			//ct.addIt(claim);
+		Date date2 = null;
+		Date date3 = null;;
+		
+		try
+		{
+			date3 = (Date) makeFormat.parse(date_to);
+			date2 = (Date) makeFormat.parse(date_from);
+			
 			Intent intent = new Intent(AddClaimActivity.this, AddExpenseActivity.class);
-			//intent.putExtra("claim", claim);
 			
 			Bundle bundle = new Bundle();
 	    	bundle.putString("name", name);
@@ -112,10 +118,14 @@ public class AddClaimActivity extends Activity {
 	    	intent.putExtras(bundle);
 	    	
 			startActivity(intent);
-		} else {
-			Toast.makeText(this,"Please fill out all fields", Toast.LENGTH_SHORT).show();
+		} catch (ParseException e)
+		{
+			// TODO Auto-generated catch block
+			//e.printStackTrace();
+			Toast.makeText(this, "Pleae enter date in specified format", Toast.LENGTH_LONG).show();
+			
 		}
-		
+			
 	}
 	
 	

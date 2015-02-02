@@ -17,7 +17,7 @@ import android.widget.AdapterView.OnItemClickListener;
 
 public class ExpenseItems extends Activity implements Serializable{
 
-	private int index;
+	private int claim_index;
 	private String title;
 	
 	
@@ -38,14 +38,14 @@ public class ExpenseItems extends Activity implements Serializable{
 	public int getIndex()
 	{
 	
-		return index;
+		return claim_index;
 	}
 
 	
 	public void setIndex(int index)
 	{
 	
-		this.index = index;
+		this.claim_index = index;
 	}
 
 	@Override
@@ -54,19 +54,20 @@ public class ExpenseItems extends Activity implements Serializable{
 
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.expense_items_activity);
+		ClaimListManager.initManager(this.getApplicationContext());
 		
 		//Intent intent_prev = getIntent();
 		//Claim claim = (Claim) intent_prev.getSerializableExtra("claim");
 		
 		Bundle bundle = getIntent().getExtras();
-		int index = bundle.getInt("index");
-		this.setIndex(index);
+		final int c_index = bundle.getInt("index");
+		this.setIndex(c_index);
 		
 		Collection<Claim> c = ClaimController.getClaimList().getClaims();
 		 
 		ArrayList<Claim> list = new ArrayList<Claim>(c);
 		
-		Claim claim = list.get(index);
+		Claim claim = list.get(c_index);
 		
 		final ArrayList<Expense_Item> list2 = claim.getExpenseItems();
 		
@@ -81,9 +82,10 @@ public class ExpenseItems extends Activity implements Serializable{
 		    @Override
 		    public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
 		    	
-			    	Intent intent = new Intent(ExpenseItems.this, EditExpenseActivity.class);
+			    	Intent intent = new Intent(ExpenseItems.this, ViewExpenseItemActivity.class);
 			    	Bundle bundle = new Bundle();
-			    	bundle.putInt("index", position); 
+			    	bundle.putInt("index", position);
+			    	bundle.putInt("c_index", c_index);
 			    	intent.putExtras(bundle); 
 					startActivity(intent);
 		    }

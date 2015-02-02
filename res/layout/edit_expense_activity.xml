@@ -1,135 +1,158 @@
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/scrollView1"
-    android:layout_width="fill_parent"
-    android:layout_height="match_parent" >
-    
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".AddExpenseActivity" >
 
     <TextView
-        android:id="@+id/descrTextView"
+        android:id="@+id/addEItextview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/editClaimButton"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
-        android:layout_below="@+id/textView2"
-        android:text="Description" />
-
-    <TextView
-        android:id="@+id/selectedClaimTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_toLeftOf="@+id/StatusTextView"
-        android:text="Claim1"
+        android:text="Add Expense Item"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textSize="32dp" />
+        android:textSize="34dp" />
 
     <TextView
-        android:id="@+id/dateToTextView"
+        android:id="@+id/itemTextView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/dateFromDisplayTextView"
-        android:layout_alignBottom="@+id/dateFromDisplayTextView"
-        android:layout_alignParentRight="true"
-        android:layout_toRightOf="@+id/textView1"
-        android:text="Date to"
+        android:layout_alignParentLeft="true"
+        android:layout_alignRight="@+id/categoryTextView"
+        android:layout_below="@+id/addEItextview"
+        android:layout_marginTop="22dp"
+        android:text="Item:"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
-        android:id="@+id/StatusTextView"
+        android:id="@+id/expenseDateView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/selectedClaimTextView"
-        android:layout_toLeftOf="@+id/statusButton"
-        android:layout_toRightOf="@+id/textView2"
-        android:text="Status"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textSize="16dp" />
-
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/dateToTextView"
-        android:layout_alignTop="@+id/dateFromDisplayTextView"
-        android:layout_toRightOf="@+id/dateFromDisplayTextView"
-        android:text=" To "
+        android:layout_alignLeft="@+id/itemTextView1"
+        android:layout_alignRight="@+id/itemTextView1"
+        android:layout_below="@+id/itemTextView1"
+        android:layout_marginTop="19dp"
+        android:text="Date:"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/categoryTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/dateToTextView"
-        android:layout_marginTop="25dp"
-        android:text="Description:"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textSize="32dp" />
-
-    <TextView
-        android:id="@+id/dateFromDisplayTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/selectedClaimTextView"
-        android:layout_marginTop="17dp"
-        android:text="Date From"
+        android:layout_alignLeft="@+id/descriptionTextView"
+        android:layout_alignRight="@+id/descriptionTextView"
+        android:layout_below="@+id/expenseDateView"
+        android:layout_marginTop="19dp"
+        android:text="Category:"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <Button
-        android:id="@+id/editClaimButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/editExpButto"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:onClick="editClaimAction"
-        android:text="Edit Claim" />
-
-    <Button
-        android:id="@+id/emailButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/homeButton"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:text="Email Claim" />
-
-    <Button
-        android:id="@+id/homeButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/addSingleButton"
+        android:layout_width="125dip"
+        android:layout_height="100dip"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:onClick="goBack"
-        android:text="View All Claims" />
+        android:layout_alignRight="@+id/addEItextview"
+        android:onClick="addOneExpense"
+        android:text="Add" />
 
-    <Button
-        android:id="@+id/editExpButto"
+    <EditText
+        android:id="@+id/itemEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/emailButton"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/itemTextView1"
+        android:layout_toRightOf="@+id/itemTextView1"
+        android:ems="10" >
+
+        <requestFocus />
+    </EditText>
+
+    <EditText
+        android:id="@+id/dateEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/itemEditText"
+        android:layout_alignRight="@+id/itemEditText"
+        android:layout_alignTop="@+id/expenseDateView"
+        android:ems="10"
+        android:inputType="date" />
+
+    <Spinner
+        android:id="@+id/categorySpinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/categoryTextView"
+        android:layout_alignLeft="@+id/dateEditText"
+        android:layout_alignRight="@+id/dateEditText"
+        android:layout_below="@+id/dateEditText"
+        android:entries="@array/category_arrays"
+        android:prompt="@string/category_prompt" />
+
+    <Spinner
+        android:id="@+id/currencySpinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/addSingleButton"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/currencyTextView"
+        android:layout_toRightOf="@+id/currencyTextView"
+        android:entries="@array/currency_arrays"
+        android:prompt="@string/currency_prompt" />
+
+    <TextView
+        android:id="@+id/currencyTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/addSingleButton"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:onClick="viewExpenseAction"
-        android:text="View Expense Items" />
+        android:layout_alignRight="@+id/AmountTextView"
+        android:layout_marginBottom="14dp"
+        android:text="Currency:"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
-    <Button
-        android:id="@+id/statusButton"
+    <EditText
+        android:id="@+id/descrText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/StatusTextView"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:onClick="ChangeStatus"
-        android:text="Change" />
+        android:layout_alignBaseline="@+id/descriptionTextView"
+        android:layout_alignBottom="@+id/descriptionTextView"
+        android:layout_toRightOf="@+id/addSingleButton"
+        android:ems="10"
+        android:inputType="textMultiLine" />
+
+    <TextView
+        android:id="@+id/descriptionTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/addSingleButton"
+        android:layout_centerVertical="true"
+        android:text="Description:"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/AmountTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/currencyTextView"
+        android:layout_alignLeft="@+id/descriptionTextView"
+        android:layout_alignRight="@+id/descriptionTextView"
+        android:text="Amount:"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <EditText
+        android:id="@+id/amountView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/currencySpinner"
+        android:layout_alignTop="@+id/AmountTextView"
+        android:ems="10"
+        android:inputType="numberSigned" />
 
 </RelativeLayout>
-
-</ScrollView>

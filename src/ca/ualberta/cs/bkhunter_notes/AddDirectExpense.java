@@ -43,6 +43,7 @@ public class AddDirectExpense extends Activity
 
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.add_direct_expense_activity);
+		ClaimListManager.initManager(this.getApplicationContext());
 		
 		Bundle bundle = getIntent().getExtras();
 		int index = bundle.getInt("index");
@@ -127,16 +128,18 @@ public class AddDirectExpense extends Activity
 		
 		EditText itemTextView = (EditText)findViewById(R.id.itemEditText);
 		EditText descTextView = (EditText)findViewById(R.id.descrText);
-		EditText amountTextView = (EditText)findViewById(R.id.amountText);
+		EditText amountTextView = (EditText)findViewById(R.id.amountView);
+		EditText dateTextView = (EditText)findViewById(R.id.dateEditText);
 		Spinner categorySpinner=(Spinner) findViewById(R.id.categorySpinner);
 		Spinner currencySpinner=(Spinner) findViewById(R.id.currencySpinner);
 
 
 		String item = itemTextView.getText().toString();
+		String date = dateTextView.getText().toString();
 		String desc = descTextView.getText().toString();
 		String category = categorySpinner.getSelectedItem().toString();
 		String currency = currencySpinner.getSelectedItem().toString();
-		Float amt = Float.valueOf(amountTextView.getText().toString());
+		int amt = Integer.valueOf(amountTextView.getText().toString());
 		
 		if (!item.equals("") && !desc.equals("")) {	
 			
@@ -146,7 +149,7 @@ public class AddDirectExpense extends Activity
 			
 			Claim claim = list.get(this.getIndex());
 			
-			Expense_Item e = new Expense_Item(item, category, desc, amt, currency);
+			Expense_Item e = new Expense_Item(item,date, category, desc, amt, currency);
 			
 			claim.addExpense_Item(e);
 		
