@@ -83,12 +83,23 @@ public class ViewClaim extends Activity {
 	}
 	
 	public void editClaimAction(View v) {
-		Intent intent = new Intent(ViewClaim.this, EditClaimActiviy.class);
-		int position = this.getIndex();
-		Bundle bundle = new Bundle();
-    	bundle.putInt("index", position); 
-    	intent.putExtras(bundle); 
-		startActivity(intent);
+		Collection<Claim> c = ClaimController.getClaimList().getClaims();
+		ArrayList<Claim> list = new ArrayList<Claim>(c);
+		
+		Claim claim = list.get(this.getIndex());
+		
+		if (claim.getStatus().equals("Submitted") || (claim.getStatus().equals("Approved")) ) {
+			Toast.makeText(this, "This Claim cannot be editted", Toast.LENGTH_SHORT).show();
+		} else {
+		
+			Intent intent = new Intent(ViewClaim.this, EditClaimActiviy.class);
+			int position = this.getIndex();
+			Bundle bundle = new Bundle();
+	    	bundle.putInt("index", position); 
+	    	intent.putExtras(bundle); 
+			startActivity(intent);
+			
+		}
 		
 		
 	}

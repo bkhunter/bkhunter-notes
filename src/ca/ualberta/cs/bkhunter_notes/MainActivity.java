@@ -109,12 +109,17 @@ public class MainActivity extends Activity
 		    	});
 		    	
 		    	
-		    	adb.setNegativeButton("Cancel", new OnClickListener() {
+		    	adb.setNegativeButton("Currency", new OnClickListener() {
 
 					@Override
 					public void onClick(DialogInterface dialog, int which)
 					{
-						// TODO Auto-generated method stub
+						
+		    			Intent intent = new Intent(MainActivity.this, ViewCurrencyActivity.class);
+				    	Bundle bundle = new Bundle();
+				    	bundle.putInt("index", pos); 
+				    	intent.putExtras(bundle); 
+						startActivity(intent);
 						
 					}
 					

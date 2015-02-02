@@ -120,15 +120,18 @@ public class Expense_Item implements Serializable
 	// expense item information into and 
 	// email ready string.
 	public String toEmailString() {
+		
+		String amt = Integer.toString(this.getAmount());
 	
 		StringBuilder builder = new StringBuilder();
-		builder.append(this.getItem())
+		builder.append("  " + this.getItem())
 			.append("\n")
-			.append(this.toString())
+			.append("   $"+amt)
 			.append(" in ")
 			.append(this.getCurrency())
 			.append("\n")
-			.append(this.getDescription())
+			.append("  " + this.getDescription())
+			.append("\n")
 			.append("\n");
 		
 		return builder.toString();

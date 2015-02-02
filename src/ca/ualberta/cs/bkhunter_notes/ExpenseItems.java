@@ -6,7 +6,10 @@ import java.util.Collection;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.DialogInterface.OnClickListener;
 import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
@@ -67,7 +70,7 @@ public class ExpenseItems extends Activity implements Serializable{
 		 
 		ArrayList<Claim> list = new ArrayList<Claim>(c);
 		
-		Claim claim = list.get(c_index);
+		final Claim claim = list.get(c_index);
 		
 		final ArrayList<Expense_Item> list2 = claim.getExpenseItems();
 		
@@ -82,15 +85,36 @@ public class ExpenseItems extends Activity implements Serializable{
 		    @Override
 		    public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
 		    	
-			    	Intent intent = new Intent(ExpenseItems.this, ViewExpenseItemActivity.class);
-			    	Bundle bundle = new Bundle();
-			    	bundle.putInt("index", position);
-			    	bundle.putInt("c_index", c_index);
-			    	intent.putExtras(bundle); 
-					startActivity(intent);
-		    }
+		    	final int pos = position;
+		    	
+		    	AlertDialog.Builder adb = new AlertDialog.Builder(ExpenseItems.this);
+		    	
+		    	adb.setMessage(list2.get(pos).getItem() + " Selected");
+		    	adb.setCancelable(true);
+		    	
+		    	adb.setPositiveButton("View", new OnClickListener() {
+		    		
+		    		public void onClick(DialogInterface dialog, int which)
+					{
+						
+		    			Intent intent = new Intent(ExpenseItems.this, ViewExpenseItemActivity.class);
+				    	Bundle bundle = new Bundle();
+				    	bundle.putInt("index", pos);
+				    	bundle.putInt("c_index", c_index);
+				    	intent.putExtras(bundle); 
+						startActivity(intent);
+						
+					}
+		    		
+		    	});
+		    	
+		    	
 		
-		});
+		    	adb.show();
+
+		    	return;
+		    }
+		}); 
 	}
 
 	@Override

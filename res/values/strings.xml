@@ -42,5 +42,6 @@
     <string name="title_activity_change_status">Change Status</string>
     <string name="title_activity_edit_expense">Edit Expense</string>
     <string name="title_activity_view_expense_item">Expense Item</string>
+    <string name="title_activity_view_currency">View Currencies</string>
 
 </resources>

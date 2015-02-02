@@ -128,16 +128,27 @@ public class Claim implements Serializable, Comparable<Claim> {
 	// which is sent to email app
 	public String toEmailString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append(this.getName())
+		builder.append("Claim Report :")
+			.append("\n")
+			.append("\n")
+			.append(this.getName())
+			.append("\n")
 			.append("\n")
 			.append(this.getDateFGiven())
+			.append("\n")
 			.append(" To ")
+			.append("\n")
 			.append(this.getDateTGiven())
+			.append("\n")
 			.append("\n")
 			.append(this.getDescription())
 			.append("\n")
+			.append("\n")
+			.append("Status : ")
 			.append(this.getStatus())
-			.append("\n");
+			.append("\n")
+			.append("\n")
+			.append("Expense Items : \n");
 	for (Expense_Item item : this.getExpenseItems()) {
 		builder.append(item.toEmailString());
 		
@@ -189,5 +200,14 @@ public class Claim implements Serializable, Comparable<Claim> {
 	public int hashCode() {
 		return ("Claim:"+this.getName()).hashCode();
 	}
+	
+	
+	public ArrayList<Expense_Item> getClaims() {
+		
+		return this.getExpenseItems();
+		
+	}
+	
+
 	
 }
