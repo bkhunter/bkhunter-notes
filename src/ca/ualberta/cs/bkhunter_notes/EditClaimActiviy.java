@@ -39,29 +39,7 @@ public class EditClaimActiviy extends Activity
 		setContentView(R.layout.edit_claim_activity);
 		ClaimListManager.initManager(this.getApplicationContext());
 		
-		Bundle bundle = getIntent().getExtras();
-		int pos = bundle.getInt("index");
 		
-		this.setIndex(pos);
-		
-		Collection<Claim> c = ClaimController.getClaimList().getClaims();
-		ArrayList<Claim> list = new ArrayList<Claim>(c);
-		
-		String name = list.get(index).getName();
-		String description = list.get(index).getDescription();
-		String DateFrom = list.get(index).getDateFGiven();
-		String DateTo = list.get(index).getDateTGiven();
-		
-		EditText descriptionEditText = (EditText) findViewById(R.id.descrText);
-		EditText nameEditText = (EditText) findViewById(R.id.claimText);
-		EditText dfEditText = (EditText) findViewById(R.id.DFText);
-		EditText dtEditText = (EditText) findViewById(R.id.DTtext);
-		
-		
-		nameEditText.setText(name);
-		descriptionEditText.setText(description);
-		dfEditText.setText(DateFrom);
-		dtEditText.setText(DateTo);
 			
 	}
 
